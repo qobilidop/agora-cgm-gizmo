@@ -3,36 +3,24 @@
 # FILE:        Make.mach.conda
 #
 # DESCRIPTION: Makefile settings for conda environment
-#  This was written to use:
-#       Packages from conda environment
+# NOTES:       Make sure the following packages are installed:
+#              $ conda install gcc hdf5 libtool
 #
-#
-# AUTHOR:      Bili Dong (qobilidop@gmail.com)
-#
-# DATE:        2018-06-18
-#
-# Update: 2018-06-18 
+# AUTHOR:      Bili Dong
+# DATE:        2018-06-19
 #
 #=======================================================================
 
-MACH_TEXT  = conda environment
-MACH_VALID = 1
+MACH_TEXT  = conda
+MACH_VALID = 0
 MACH_FILE  = Make.mach.conda
-
-#-----------------------------------------------------------------------
-# Commands to run test executables
-#-----------------------------------------------------------------------
-
 
 #-----------------------------------------------------------------------
 # Install paths (local variables)
 #-----------------------------------------------------------------------
 
-LOCAL_PACKAGES       = $(CONDA_PREFIX)
-
-LOCAL_FC_INSTALL     = $(CONDA_PREFIX)
-LOCAL_HDF5_INSTALL   = $(CONDA_PREFIX)
-LOCAL_SZIP_INSTALL   = $(LOCAL_PACKAGES)
+LOCAL_HDF5_INSTALL = $(CONDA_PREFIX)
+LOCAL_FC_INSTALL   = $(CONDA_PREFIX)
 
 #-----------------------------------------------------------------------
 # Compiler settings
@@ -40,11 +28,11 @@ LOCAL_SZIP_INSTALL   = $(LOCAL_PACKAGES)
 
 MACH_CPP       = $(CONDA_PREFIX)/bin/cpp
 
-MACH_CC_NOMPI  = $(CONDA_PREFIX)/bin/gcc  # C compiler when not using MPI
-MACH_CXX_NOMPI = $(CONDA_PREFIX)/bin/g++ # C++ compiler when not using MPI
-MACH_FC_NOMPI  = $(CONDA_PREFIX)/bin/gfortran # Fortran 77 compiler when not using MPI
-MACH_F90_NOMPI = $(CONDA_PREFIX)/bin/gfortran # Fortran 90 compiler when not using MPI
-MACH_LD_NOMPI  = $(CONDA_PREFIX)/bin/gcc # Linker when not using MPI
+MACH_CC_NOMPI  = $(CONDA_PREFIX)/bin/gcc
+MACH_CXX_NOMPI = $(CONDA_PREFIX)/bin/g++
+MACH_FC_NOMPI  = $(CONDA_PREFIX)/bin/gfortran
+MACH_F90_NOMPI = $(CONDA_PREFIX)/bin/gfortran
+MACH_LD_NOMPI  = $(CONDA_PREFIX)/bin/gcc
 
 MACH_LIBTOOL   = $(CONDA_PREFIX)/bin/libtool
 
@@ -52,23 +40,18 @@ MACH_LIBTOOL   = $(CONDA_PREFIX)/bin/libtool
 # Machine-dependent defines
 #-----------------------------------------------------------------------
 
-# Note: When compiling against HDF5 version 1.8 or greater, you need to
-# compile HDF5 with --with-default-api-version=v16, or grackle with
-# -DH5_USE_16_API.
-
-MACH_DEFINES   = -DLINUX -DH5_USE_16_API 
+MACH_DEFINES   = -DLINUX -DH5_USE_16_API
 
 #-----------------------------------------------------------------------
 # Compiler flag settings
 #-----------------------------------------------------------------------
 
-MACH_OMPFLAGS = # OpenMP flags
-MACH_CPPFLAGS = -P -traditional 
+MACH_CPPFLAGS = -P -traditional
 MACH_CFLAGS   =
 MACH_CXXFLAGS =
 MACH_FFLAGS   = -fno-second-underscore -m64
 MACH_F90FLAGS = -fno-second-underscore -m64
-MACH_LDFLAGS  = 
+MACH_LDFLAGS  =
 
 #-----------------------------------------------------------------------
 # Optimization flags
@@ -91,10 +74,10 @@ MACH_INCLUDES         = $(LOCAL_INCLUDES_HDF5)
 # Libraries
 #-----------------------------------------------------------------------
 
-LOCAL_LIBS_MACH   = -L$(LOCAL_FC_INSTALL)/lib -lgfortran 
 LOCAL_LIBS_HDF5   = -L$(LOCAL_HDF5_INSTALL)/lib -lhdf5
+LOCAL_LIBS_MACH   = -L$(LOCAL_FC_INSTALL)/lib -lgfortran
 
-MACH_LIBS        = $(LOCAL_LIBS_HDF5) $(LOCAL_LIBS_MACH) 
+MACH_LIBS         = $(LOCAL_LIBS_HDF5) $(LOCAL_LIBS_MACH)
 
 #-----------------------------------------------------------------------
 # Installation
