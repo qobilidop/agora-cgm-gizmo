@@ -8,7 +8,7 @@
 %-------------------------------------------------------------------------
 
 %----  Relevant files
-InitCondFile  ../low.dat
+InitCondFile  low.dat
 OutputDir     output/ 
 
 %---- File formats 

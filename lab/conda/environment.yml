@@ -1,0 +1,13 @@
+name: agora-gizmo
+channels:
+  - qobilidop
+  - conda-forge
+  - defaults
+dependencies:
+  - fftw-mpi=2
+  - gcc
+  - gsl
+  - hdf5
+  - libtool
+  - mkl
+  - mpi
