@@ -1,9 +1,12 @@
 # AGORA GIZMO Runs
 
-## Usage
+Make sure [Mercurial](https://www.mercurial-scm.org/) (hg) is available before downloading the code.
 
+Download the code:
 ```
-cd code && make
+make code
 ```
 
-Continue with [Test Run in Conda Environment](lab/conda/README.md).
+Continue with the following:
+- [Test Run in Conda Environment](lab/conda/README.md)
+- [Production Run on Edison](lab/edison/README.md)

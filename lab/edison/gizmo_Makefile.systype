@@ -1,0 +1,22 @@
+CC       =  mpiicc
+CXX      =  mpiicpc
+FC       =  $(CC)
+OPTIMIZE =  -O3 -unroll-aggressive -qopt-prefetch
+OPTIMIZE += -g -Wall
+ifeq (OPENMP, $(findstring OPENMP,$(CONFIGVARS)))
+OPTIMIZE += -openmp
+endif
+GMP_INCL = #
+GMP_LIBS = #
+MKL_INCL = -I$(MKLROOT)/include
+MKL_LIBS = -L$(MKLROOT)/lib
+GSL_INCL = -I$(GSL_DIR)/include
+GSL_LIBS = -L$(GSL_DIR)/lib
+FFTW_INCL= -I$(FFTW_DIR)
+FFTW_LIBS= -L$(FFTW_INC)
+HDF5INCL = -I$(HDF5_DIR)/include -DH5_USE_16_API
+HDF5LIB  = -L$(HDF5_DIR)/lib -lhdf5 -lz
+MPICHLIB = #
+OPT     += -DUSE_MPI_IN_PLACE
+GRACKLEINCL = -I$(GRACKLE_INSTALL_DIR)/include
+GRACKLELIBS = -L$(GRACKLE_INSTALL_DIR)/lib -lgrackle
