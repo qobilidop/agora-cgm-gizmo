@@ -1,4 +1,3 @@
-name: agora-gizmo
 channels:
   - qobilidop
   - conda-forge

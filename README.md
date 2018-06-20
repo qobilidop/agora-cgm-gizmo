@@ -1,12 +1,31 @@
 # AGORA GIZMO Runs
 
-Make sure [Mercurial](https://www.mercurial-scm.org/) (hg) is available before downloading the code.
+## Installation
 
-Download the code:
-```
-make code
+Make sure [Mercurial](https://www.mercurial-scm.org/) (hg) is available. Then proceed with:
+```bash
+source init.sh
+
+cd code
+source config/{system}/init.sh
+make
 ```
 
-Continue with the following:
-- [Test Run in Conda Environment](lab/conda/README.md)
-- [Production Run on Edison](lab/edison/README.md)
+## Simulation runs
+
+```
+source init.sh
+
+cd lab/run/isolated-disk
+make
+```
+
+Test in a conda environment:
+```bash
+./script/run-conda.sh
+```
+
+Submit a job on Edison:
+```bash
+sbatch script/job-edison.sh
+```

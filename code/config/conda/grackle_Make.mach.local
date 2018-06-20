@@ -1,19 +1,16 @@
 #=======================================================================
 #
-# FILE:        Make.mach.conda
+# FILE:        Make.mach.local
 #
 # DESCRIPTION: Makefile settings for conda environment
 # NOTES:       Make sure the following packages are installed:
 #              $ conda install gcc hdf5 libtool
 #
-# AUTHOR:      Bili Dong
-# DATE:        2018-06-19
-#
 #=======================================================================
 
 MACH_TEXT  = conda
 MACH_VALID = 0
-MACH_FILE  = Make.mach.conda
+MACH_FILE  = Make.mach.local
 
 #-----------------------------------------------------------------------
 # Install paths (local variables)

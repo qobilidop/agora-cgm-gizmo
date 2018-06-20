@@ -1,19 +1,16 @@
 #=======================================================================
 #
-# FILE:        Make.mach.nersc-edison-intel
+# FILE:        Make.mach.local
 #
 # DESCRIPTION: Makefile settings for NERSC Edison
 # NOTES:       Make sure the following modules are loaded:
 #              $ module load intel cray-hdf5
 #
-# AUTHOR:      Bili Dong
-# DATE:        2018-06-19
-#
 #=======================================================================
 
 MACH_TEXT  = Edison
 MACH_VALID = 0
-MACH_FILE  = Make.mach.nersc-edison-intel
+MACH_FILE  = Make.mach.local
 
 #-----------------------------------------------------------------------
 # Install paths (local variables)
@@ -83,6 +80,6 @@ MACH_LIBS         = $(LOCAL_LIBS_HDF5) $(LOCAL_LIBS_MACH)
 # Installation
 #-----------------------------------------------------------------------
 
-MACH_INSTALL_PREFIX = $(GRACKLE_INSTALL_DIR)
+MACH_INSTALL_PREFIX = $(LOCAL_PREFIX)
 MACH_INSTALL_LIB_DIR =
 MACH_INSTALL_INCLUDE_DIR =

@@ -1,5 +1,6 @@
-local/
 output/
 *-usedvalues
+CloudyData_*
 GIZMO
 GRACKLE_INFO
+TREECOOL
