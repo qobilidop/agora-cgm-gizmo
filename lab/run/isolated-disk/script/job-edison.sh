@@ -15,7 +15,7 @@ export OMP_NUM_THREADS=1
 export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$LOCAL_PREFIX"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$LOCAL_PREFIX/lib"
 
 cd "$PROJECT_DIR/lab/run/isolated-disk"
 srun -c 1 ./GIZMO coolsf.par
