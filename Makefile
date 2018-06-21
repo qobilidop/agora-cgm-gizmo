@@ -1,7 +1,7 @@
-.PHONY: help code deploy
-
+.PHONY: help
 help:
 	cat Makefile
 
-deploy:
-	rsync -aKmvz --update --delete-after --filter=':- .gitignore' . edison:~/project/agora-gizmo
+# % could be {edison, tscc}
+deploy-to-%:
+	rsync -aKmvz --update --delete-after --filter=':- .gitignore' . $*:~/project/agora-gizmo

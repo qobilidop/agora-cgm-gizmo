@@ -1,0 +1,27 @@
+# Settings for SDSC TSCC
+# Make sure these modules are loaded:
+# $ module load intel openmpi_ib
+# $ module load mkl gsl fftw/2.1.5 hdf5
+
+CC       =  mpicc
+CXX      =  mpicxx
+FC       =  $(CC)
+OPTIMIZE =  -O3 -xHOST
+OPTIMIZE += -g -Wall
+ifeq (OPENMP, $(findstring OPENMP,$(CONFIGVARS)))
+OPTIMIZE += -openmp
+endif
+GMP_INCL = #
+GMP_LIBS = #
+MKL_INCL = -I$(MKLHOME)/include
+MKL_LIBS = -L$(MKLHOME)/lib
+GSL_INCL = -I$(GSLHOME)/include
+GSL_LIBS = -L$(GSLHOME)/lib
+FFTW_INCL= -I$(FFTWHOME)
+FFTW_LIBS= -L$(FFTWHOME)
+HDF5INCL = -I$(HDF5HOME)/include -DH5_USE_16_API
+HDF5LIB  = -L$(HDF5HOME)/lib -lhdf5 -lz
+MPICHLIB = #
+OPT     += -DUSE_MPI_IN_PLACE
+GRACKLEINCL = -I$(LOCAL_PREFIX)/include
+GRACKLELIBS = -L$(LOCAL_PREFIX)/lib -lgrackle

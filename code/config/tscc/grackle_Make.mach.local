@@ -2,13 +2,13 @@
 #
 # FILE:        Make.mach.local
 #
-# DESCRIPTION: Makefile settings for NERSC Edison
+# DESCRIPTION: Makefile settings for SDSC TSCC
 # NOTES:       Make sure these modules are loaded:
-#              $ module load intel cray-hdf5
+#              $ module load intel hdf5
 #
 #=======================================================================
 
-MACH_TEXT  = Edison
+MACH_TEXT  = TSCC
 MACH_VALID = 0
 MACH_FILE  = Make.mach.local
 
@@ -16,8 +16,8 @@ MACH_FILE  = Make.mach.local
 # Install paths (local variables)
 #-----------------------------------------------------------------------
 
-LOCAL_HDF5_INSTALL = $(HDF5_DIR)
-LOCAL_FC_INSTALL   = $(INTEL_PATH)/linux/compiler/lib/intel64
+LOCAL_HDF5_INSTALL = $(HDF5HOME)
+LOCAL_FC_INSTALL   = $(INTELHOME)/compiler/lib/intel64
 
 #-----------------------------------------------------------------------
 # Compiler settings
@@ -63,7 +63,7 @@ MACH_OPT_AGGRESSIVE  = -O3
 # Includes
 #-----------------------------------------------------------------------
 
-LOCAL_INCLUDES_HDF5   = -I$(LOCAL_HDF5_INSTALL)/include
+LOCAL_INCLUDES_HDF5   = -I$(LOCAL_HDF5_INSTALL)/include -I$(MPIHOME)/include
 
 MACH_INCLUDES         = $(LOCAL_INCLUDES_HDF5)
 

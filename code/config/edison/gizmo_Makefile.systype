@@ -1,3 +1,8 @@
+# Settings for NERSC Edison
+# Make sure these modules are loaded:
+# $ module load PrgEnv-intel impi
+# $ module load intel-mkl gsl fftw/2.1.5.9 cray-hdf5
+
 CC       =  mpiicc
 CXX      =  mpiicpc
 FC       =  $(CC)
