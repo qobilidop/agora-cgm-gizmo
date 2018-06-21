@@ -18,4 +18,9 @@ export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 
 cd "$PROJECT_DIR/lab/run/isolated-disk"
-srun -c 1 ./GIZMO coolsf.par
+RUN="srun -c 1 ./GIZMO coolsf.par"
+if [ -d output/restartfiles ]; then
+    $RUN 1
+else
+    $RUN
+fi
