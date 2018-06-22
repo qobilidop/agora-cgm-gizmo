@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH -J Sim-SSF
+#SBATCH -J Sim-SFF
 #SBATCH -q shared
 #SBATCH -n 2
 #SBATCH -t 24:00:00
@@ -17,7 +17,7 @@ export OMP_NUM_THREADS=1
 export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 
-cd "$PROJECT_DIR/lab/run/Sim-SSF"
+cd "$PROJECT_DIR/lab/run/Sim-SFF"
 RUN="srun -c 1 ./GIZMO params.txt"
 if [ -d output/restartfiles ]; then
     $RUN 1

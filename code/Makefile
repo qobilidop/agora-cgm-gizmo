@@ -19,7 +19,7 @@ bin/GIZMO-%: config/gizmo_Config-%.sh $(GRACKLE_HEADER) | $(GIZMO_LOCAL) bin
 	@echo Compiling GIZMO
 	cp -f $< $(GIZMO_LOCAL)/Config.sh
 	cp -f config/$(SYSTEM)/gizmo_Makefile.systype $(GIZMO_LOCAL)/Makefile.systype
-	cd $(GIZMO_LOCAL) && Make
+	cd $(GIZMO_LOCAL) && make
 	mv $(GIZMO_LOCAL)/GIZMO $@
 
 $(GIZMO_LOCAL): | extern

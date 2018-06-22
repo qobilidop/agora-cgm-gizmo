@@ -18,7 +18,7 @@ Initialize:
 ```
 source init.sh
 
-cd lab/run/Sim-SSF
+cd lab/run/Sim-SFF
 make init
 ```
 
