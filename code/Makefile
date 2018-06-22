@@ -1,35 +1,33 @@
 GIZMO_LOCAL = extern/gizmo-agora
 GIZMO_REMOTE = https://bitbucket.org/qobilidop/gizmo-agora
 GIZMO_VERSION = agora
-GIZMO_TARGET = $(GIZMO_LOCAL)/GIZMO
 
 GRACKLE_LOCAL = extern/grackle-gizmo-agora
 GRACKLE_REMOTE = https://bitbucket.org/qobilidop/grackle-gizmo-agora
 GRACKLE_VERSION = gizmo-agora
-GRACKLE_TARGET = $(LOCAL_PREFIX)/include/grackle.h
+GRACKLE_HEADER = $(LOCAL_PREFIX)/include/grackle.h
+
+TARGETS = bin/GIZMO-noSF bin/GIZMO-SSF $(GRACKLE_HEADER)
 
 .PHONY: all
-all: bin/GIZMO
+all: $(TARGETS)
 
 # GIZMO
 
-bin/GIZMO: $(GIZMO_TARGET)
-	mkdir -p bin
-	cp $< $@
-
-$(GIZMO_TARGET): $(GRACKLE_TARGET) | $(GIZMO_LOCAL)
+bin/GIZMO-%: config/gizmo_Config-%.sh $(GRACKLE_HEADER) | $(GIZMO_LOCAL) bin
 	@echo
 	@echo Compiling GIZMO
-	cp -f config/gizmo_Config.sh $(GIZMO_LOCAL)/Config.sh
+	cp -f $< $(GIZMO_LOCAL)/Config.sh
 	cp -f config/$(SYSTEM)/gizmo_Makefile.systype $(GIZMO_LOCAL)/Makefile.systype
-	cd $(GIZMO_LOCAL) && make
+	cd $(GIZMO_LOCAL) && Make
+	mv $(GIZMO_LOCAL)/GIZMO $@
 
 $(GIZMO_LOCAL): | extern
 	hg clone $(GIZMO_REMOTE) $@ -u $(GIZMO_VERSION)
 
 # Grackle
 
-$(GRACKLE_TARGET): | $(GRACKLE_LOCAL)
+$(GRACKLE_HEADER): | $(GRACKLE_LOCAL)
 	@echo
 	@echo Compiling Grackle
 	mkdir -p $(LOCAL_PREFIX)
@@ -40,7 +38,10 @@ $(GRACKLE_TARGET): | $(GRACKLE_LOCAL)
 $(GRACKLE_LOCAL): | extern
 	hg clone $(GRACKLE_REMOTE) $@ -u $(GRACKLE_VERSION)
 
-# Misc
+# Directories
+
+bin:
+	mkdir $@
 
 extern:
 	mkdir $@
@@ -50,7 +51,7 @@ extern:
 .PHONY: clean clean-all
 
 clean:
-	rm -f bin/GIZMO
+	rm -f $(TARGETS)
 	cd $(GIZMO_LOCAL) && make clean
 	cd $(GRACKLE_LOCAL)/src/clib && make clean
 
