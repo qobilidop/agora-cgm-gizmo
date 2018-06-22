@@ -1,5 +1,7 @@
+backup/
 output/
 *-usedvalues
+*.dat
 CloudyData_*
 GIZMO
 GRACKLE_INFO

@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH -J agora-disk
+#SBATCH -J Sim-noSF
 #SBATCH -q shared
 #SBATCH -n 2
 #SBATCH -t 24:00:00
@@ -17,8 +17,8 @@ export OMP_NUM_THREADS=1
 export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 
-cd "$PROJECT_DIR/lab/run/isolated-disk"
-RUN="srun -c 1 ./GIZMO coolsf.par"
+cd "$PROJECT_DIR/lab/run/Sim-noSF"
+RUN="srun -c 1 ./GIZMO params.txt"
 if [ -d output/restartfiles ]; then
     $RUN 1
 else

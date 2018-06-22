@@ -2,8 +2,8 @@
 
 source "$PROJECT_DIR/code/config/conda/init.sh"
 
-cd "$PROJECT_DIR/lab/run/isolated-disk"
-RUN="mpirun -np 2 ./GIZMO coolsf.par"
+cd "$PROJECT_DIR/lab/run/Sim-SSF"
+RUN="mpirun -np 2 ./GIZMO params.txt"
 if [ -d output/restartfiles ]; then
     $RUN 1
 else

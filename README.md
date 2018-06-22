@@ -18,7 +18,7 @@ Initialize:
 ```
 source init.sh
 
-cd lab/run/isolated-disk
+cd lab/run/Sim-SSF
 make init
 ```
 
