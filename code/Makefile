@@ -7,7 +7,7 @@ GRACKLE_REMOTE = https://bitbucket.org/qobilidop/grackle-gizmo-agora
 GRACKLE_VERSION = gizmo-agora
 GRACKLE_HEADER = $(LOCAL_PREFIX)/include/grackle.h
 
-TARGETS = bin/GIZMO-noSF bin/GIZMO-SSF $(GRACKLE_HEADER)
+TARGETS = bin/GIZMO-noSF bin/GIZMO-SFF $(GRACKLE_HEADER)
 
 .PHONY: all
 all: $(TARGETS)
@@ -16,7 +16,7 @@ all: $(TARGETS)
 
 bin/GIZMO-%: config/gizmo_Config-%.sh $(GRACKLE_HEADER) | $(GIZMO_LOCAL) bin
 	@echo
-	@echo Compiling GIZMO
+	@echo Compiling GIZMO-$*
 	cp -f $< $(GIZMO_LOCAL)/Config.sh
 	cp -f config/$(SYSTEM)/gizmo_Makefile.systype $(GIZMO_LOCAL)/Makefile.systype
 	cd $(GIZMO_LOCAL) && make
