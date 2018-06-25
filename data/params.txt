@@ -25,18 +25,18 @@ NumFilesWrittenInParallel   1  % must be < N_processors & power of 2
 
 %---- Output frequency
 TimeOfFirstSnapshot     0.0        % time (code units) of first snapshot
-TimeBetSnapshot         5.11005e-2 % time between (if OutputListOn=0), code units
-TimeBetStatistics       5.11005e-2 % time between additional statistics (e.g. energy)
+TimeBetSnapshot         5.11356e-2 % 50 Myr, time between (if OutputListOn=0), code units
+TimeBetStatistics       5.11356e-2 % 50 Myr, time between additional statistics (e.g. energy)
 
 %---- CPU run-time and checkpointing time-limits
-TimeLimitCPU            100000  % in seconds
+TimeLimitCPU            32000   % in seconds
 CpuTimeBetRestartFile   3600    % in seconds
 ResubmitOn              0
 ResubmitCommand         my-scriptfile
 
 %---- Desired simulation beginning and end times (in code units) for run
-TimeBegin   0.0     % Beginning of the simulation
-TimeMax     1.02201 % End of the simulation
+TimeBegin   0.0      % Beginning of the simulation
+TimeMax     1.022712 % 1 Gyr, End of the simulation
 
 %---- Maximum and minimum timesteps allowed
 MaxSizeTimestep         0.005   % in code units, set for your problem
