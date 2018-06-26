@@ -118,7 +118,7 @@ SfEffPerFreeFall    0.01    %  SFR/(Mgas/tfreefall) for gas which meets SF crite
 
 
 %--- initial metallicity of gas & stars in simulation
-InitMetallicity             1.0     % initial gas+stellar metallicity (in solar)
+InitMetallicity             1.5761  % initial gas+stellar metallicity (in solar), = 0.02041 (in fractional)
 InitStellarAge              20.0    % initial mean age (in Gyr; for stars in sim ICs)
 
 
