@@ -2,6 +2,8 @@
 help:
 	cat Makefile
 
-# % could be {edison, tscc}
-deploy-to-%:
-	rsync -aKmvz --update --delete-after --filter=':- .gitignore' . $*:~/project/agora-gizmo
+deploy:
+	rsync -aKmvz --update --delete-after --filter=':- .gitignore' . tscc:~/project/agora-gizmo
+
+capture:
+	rsync -avz --update --exclude='backup' --exclude='restartfiles' tscc:~/project/agora-gizmo/lab/ lab/
