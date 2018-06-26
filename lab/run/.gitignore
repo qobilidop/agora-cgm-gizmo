@@ -2,7 +2,9 @@ backup/
 output/
 *-usedvalues
 *.dat
+*.[oe]*
 CloudyData_*
 GIZMO
 GRACKLE_INFO
+params.txt
 TREECOOL

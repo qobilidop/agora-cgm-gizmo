@@ -109,7 +109,7 @@ GrackleDataFile          CloudyData_UVB=HM2012.h5
 
 
 %---- Metallicity Master Switch (METALS on)
-SolarAbundance  0.02041  % AGORA standard value
+SolarAbundance  0.01295  % AGORA old value
 
 
 %---- Star Formation parameters (GALSF on)
