@@ -1,38 +1,30 @@
 # AGORA GIZMO Runs
 
+Make sure to `source .envrc` before doing anything else. This exports necessary environment variables used elsewhere.
+
 ## Installation
 
 Make sure [Mercurial](https://www.mercurial-scm.org/) (hg) is available. Then proceed with:
 ```bash
-source init.sh
-
 cd code
-source config/{system}/init.sh
-# {system} could be conda, edison, or tscc
+source config/{env}/init.sh  # {env} could be conda or tscc
 make
 ```
 
-## Simulation runs
+## Run a Single Simulation
 
-Initialize:
-```
-source init.sh
-
-cd lab/run/Sim-SFF
-make init
-```
-
-Run in a conda environment:
 ```bash
-./script/run-conda.sh
+cd lab/run
+./setup-{sim_name}.sh
+cd {sim_name}
+./run.sh  # run in a conda environment
+qsub job.sh  # submit a job on TSCC
 ```
 
-Submit a job on Edison:
-```bash
-sbatch script/job-edison.sh
-```
+## Batch Process
 
-Submit a job on TSCC:
 ```bash
-qsub script/job-tscc.sh
+cd lab/run
+./all-setup.sh
+./all-submit.sh  # on TSCC
 ```

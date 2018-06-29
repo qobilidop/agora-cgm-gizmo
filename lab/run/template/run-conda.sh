@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "$PROJECT_DIR/code/config/conda/init.sh"
+source "$PROJECT_ROOT/code/config/conda/activate.sh"
 
-cd "$PROJECT_DIR/lab/run/Sim-SFF"
+cd "$PROJECT_ROOT/lab/run/{sim_name}"
 RUN="mpirun -np 2 ./GIZMO params.txt"
 if [ -d output/restartfiles ]; then
     $RUN 1
