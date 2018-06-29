@@ -24,4 +24,4 @@ HDF5LIB  = -L$(HDF5HOME)/lib -lhdf5 -lz
 MPICHLIB = #
 OPT     += -DUSE_MPI_IN_PLACE
 GRACKLEINCL = -I$(PROJECT_PREFIX)/include
-GRACKLELIBS = -L$(PROJECT_PREFIX)/lib -lgrackle
+GRACKLELIBS = -L$(PROJECT_PREFIX)/lib -lgrackle -Wl,-rpath -Wl,$(PROJECT_PREFIX)/lib
