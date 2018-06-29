@@ -6,7 +6,6 @@
 #PBS -V
 
 source "$PROJECT_ROOT/code/config/tscc/activate.sh"
-echo "$CONDA_PREFIX"
 
 cd "$PROJECT_ROOT/lab/run/{sim_name}"
 RUN="mpirun -machinefile $PBS_NODEFILE -np $PBS_NP ./GIZMO params.txt"
