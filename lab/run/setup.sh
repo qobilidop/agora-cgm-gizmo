@@ -19,3 +19,5 @@ cp "${PROJECT_ROOT}/code/extern/grackle-gizmo-agora/input/CloudyData_UVB=HM2012.
 sed s/{sim_name}/$SIM_NAME/g ../template/job-tscc.sh > job.sh
 sed s/{sim_name}/$SIM_NAME/g ../template/run-conda.sh > run.sh
 chmod +x run.sh
+printf "#!/usr/bin/env bash\n\n./../setup-$SIM_NAME.sh\n" > update.sh
+chmod +x update.sh
