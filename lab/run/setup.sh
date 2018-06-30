@@ -10,7 +10,7 @@ cd $SIM_NAME
 cp "$PROJECT_ROOT/code/bin/$GIZMO_CMD" GIZMO
 cp "$PROJECT_ROOT/code/extern/gizmo-agora/cooling/TREECOOL" .
 cp "$PROJECT_ROOT/data/ic/$GIZMO_IC" ic.dat
-cp "$PROJECT_ROOT/data/$GIZMO_PARAMS" .
+cp "$PROJECT_ROOT/data/$GIZMO_PARAMS" params.txt
 
 ## Grackle files
 cp "${PROJECT_ROOT}/code/extern/grackle-gizmo-agora/input/CloudyData_UVB=HM2012.h5" .
