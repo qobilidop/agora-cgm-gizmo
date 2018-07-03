@@ -48,14 +48,14 @@ extern:
 
 # Clean
 
-.PHONY: clean clean-all
+.PHONY: clean purge
 
 clean:
 	rm -f $(TARGETS)
 	cd $(GIZMO_LOCAL) && make clean
 	cd $(GRACKLE_LOCAL)/src/clib && make clean
 
-clean-all:
+purge:
 	rm -rf bin
 	rm -rf extern
 	rm -rf local
