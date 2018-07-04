@@ -87,12 +87,12 @@ SofteningBndry  0.08     % black holes (if active), or collisionless (type=5)
 %---- if these are set in cosmo runs, SofteningX switches from comoving to physical
 %------- units when the comoving value exceeds the choice here
 %------- (these are ignored, and *only* the above are used, for non-cosmo runs)
-SofteningGasMaxPhys     0.0005  % e.g. switch to 0.5pc physical below z=1
-SofteningHaloMaxPhys    0.010
-SofteningDiskMaxPhys    0.075
-SofteningBulgeMaxPhys   0.250
-SofteningStarsMaxPhys   0.0005
-SofteningBndryMaxPhys   0.0005
+SofteningGasMaxPhys     0.08
+SofteningHaloMaxPhys    0.08
+SofteningDiskMaxPhys    0.08
+SofteningBulgeMaxPhys   0.08
+SofteningStarsMaxPhys   0.08
+SofteningBndryMaxPhys   0.08
 %----- parameters for adaptive gravitational softening
 AGS_DesNumNgb           32  % neighbor number for calculating adaptive gravsoft
 
