@@ -109,11 +109,11 @@ GrackleDataFile          CloudyData_UVB=HM2012.h5
 
 
 %---- Metallicity Master Switch (METALS on)
-SolarAbundance  0.01295  % AGORA old value
+SolarAbundance  0.02041  % AGORA standard value
 
 
 %---- Artificial Pressure Floor (EOS_TRUELOVE_PRESSURE on)
-NJeans  4.
+NJeans  5.65685425  % = 4 * sqrt(2)
 
 
 %---- Star Formation parameters (GALSF on)
@@ -122,7 +122,7 @@ SfEffPerFreeFall    0.01    %  SFR/(Mgas/tfreefall) for gas which meets SF crite
 
 
 %--- initial metallicity of gas & stars in simulation
-InitMetallicity             1.5761  % initial gas+stellar metallicity (in solar), = 0.02041 (in fractional)
+InitMetallicity             1.0     % initial gas+stellar metallicity (in solar)
 InitStellarAge              20.0    % initial mean age (in Gyr; for stars in sim ICs)
 
 
