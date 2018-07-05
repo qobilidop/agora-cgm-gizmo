@@ -112,10 +112,6 @@ GrackleDataFile          CloudyData_UVB=HM2012.h5
 SolarAbundance  0.02041  % AGORA standard value
 
 
-%---- Artificial Pressure Floor (EOS_TRUELOVE_PRESSURE on)
-NJeans  4.
-
-
 %---- Star Formation parameters (GALSF on)
 CritPhysDensity     10.     %  critical physical density for star formation (cm^(-3)) 
 SfEffPerFreeFall    0.01    %  SFR/(Mgas/tfreefall) for gas which meets SF criteria
