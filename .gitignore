@@ -1,0 +1,9 @@
+.local/
+.vscode/
+scratch/
+*.log
+
+# Select from https://github.com/github/gitignore/blob/master/Python.gitignore
+
+# Jupyter Notebook
+.ipynb_checkpoints

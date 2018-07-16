@@ -2,11 +2,17 @@
 help:
 	cat Makefile
 
-deploy:
-	rsync -amvz --update --delete-after --filter=':- .gitignore' . tscc:~/project/agora-gizmo
+.PHONY: init
+# Initialize local env for the first time:
+# $ source env/activate
+# $ source env/<LOCAL_ENV>/activate
+# $ make init
+# Activate local env afterwords:
+# $ source env/activate
+init:
+	./env/init.sh
 
-capture:
-	rsync -avz --update --exclude='backup' --exclude='restartfiles' tscc:~/project/agora-gizmo/lab/ lab/
-
-share:
-	rsync -amvz --update --delete-excluded --include='output/*' --include='*/' --exclude='*' . edison:~/project/agora-gizmo
+.PHONY: purge
+# Purge local env
+purge:
+	rm -rf .local

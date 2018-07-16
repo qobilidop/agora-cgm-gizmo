@@ -3,10 +3,10 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - fftw-mpi=2
+  # Compilers
   - gcc
+  - openmpi
+  # Applications
   - gsl
   - hdf5
   - libtool
-  - mkl
-  - mpi
