@@ -12,7 +12,7 @@ cd fftw-2.1.5
 # Compile & install
 ## Installing FFTW in both single and double precision
 ## See http://www.fftw.org/fftw2_doc/fftw_6.html#SEC69
-CONFIGURE="./configure --prefix="$LOCAL_PREFIX" --enable-type-prefix --enable-mpi"
+CONFIGURE="./configure --prefix="$LOCAL_PREFIX" --enable-type-prefix --enable-mpi CC=$LOCAL_CC MPICC=$LOCAL_MPICC CFLAGS="$LOCAL_CFLAGS" LDFLAGS="$LOCAL_LDFLAGS""
 ## Single precision
 $CONFIGURE
 make
