@@ -14,20 +14,27 @@ cd gizmo-agora
 cp -f "$PROJECT_DIR/code/extern/gizmo/Makefile.systype" .
 
 # Compile
-## noSF
-cp -f "$PROJECT_DIR/code/extern/gizmo/Config-noSF.sh" Config.sh
-make -j
-mv GIZMO GIZMO-noSF
 make clean
-## SFF
-cp -f "$PROJECT_DIR/code/extern/gizmo/Config-SFF.sh" Config.sh
+## No star formation
+cp "$PROJECT_DIR/code/extern/gizmo/Config-nsf.sh" Config.sh
 make -j
-mv GIZMO GIZMO-SFF
+mv GIZMO GIZMO-nsf
+make clean
+## Thermal feedback
+cp "$PROJECT_DIR/code/extern/gizmo/Config-tfb.sh" Config.sh
+make -j
+mv GIZMO GIZMO-tfb
+make clean
+## Mechanical feedback
+cp "$PROJECT_DIR/code/extern/gizmo/Config-mfb.sh" Config.sh
+make -j
+mv GIZMO GIZMO-mfb
 make clean
 
 # Install
 mv GIZMO* "$LOCAL_PREFIX/bin/"
 
 # Test
-which GIZMO-noSF
-which GIZMO-SFF
+which GIZMO-nsf
+which GIZMO-tfb
+which GIZMO-mfb
