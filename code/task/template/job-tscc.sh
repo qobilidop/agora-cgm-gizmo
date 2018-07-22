@@ -9,7 +9,7 @@ cd "$PROJECT_DIR"
 source env/activate
 
 cd "data/sim/{sim_name}"
-RUN="mpirun -machinefile $PBS_NODEFILE -np $PBS_NP ./GIZMO params.txt"
+RUN="mpirun -machinefile $PBS_NODEFILE -np $PBS_NP {sim_gizmo_bin} {sim_gizmo_params}"
 if [ -d output/restartfiles ]; then
     $RUN 1
 else
