@@ -5,9 +5,10 @@
 #PBS -l walltime=8:00:00
 #PBS -V
 
-source "$PROJECT_ROOT/code/config/tscc/activate.sh"
+cd "$PROJECT_DIR"
+source env/activate
 
-cd "$PROJECT_ROOT/lab/run/{sim_name}"
+cd "data/sim/{sim_name}"
 RUN="mpirun -machinefile $PBS_NODEFILE -np $PBS_NP ./GIZMO params.txt"
 if [ -d output/restartfiles ]; then
     $RUN 1
