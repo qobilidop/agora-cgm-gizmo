@@ -25,6 +25,11 @@ cp "$PROJECT_DIR/code/extern/gizmo/Config-tfb.sh" Config.sh
 make -j
 mv GIZMO GIZMO-tfb
 make clean
+## Thermal feedback with delayed coooling
+cp "$PROJECT_DIR/code/extern/gizmo/Config-tfb-dc.sh" Config.sh
+make -j
+mv GIZMO GIZMO-tfb-dc
+make clean
 ## Mechanical feedback
 cp "$PROJECT_DIR/code/extern/gizmo/Config-mfb.sh" Config.sh
 make -j
@@ -37,4 +42,5 @@ mv GIZMO* "$LOCAL_PREFIX/bin/"
 # Test
 which GIZMO-nsf
 which GIZMO-tfb
+which GIZMO-tfb-dc
 which GIZMO-mfb
