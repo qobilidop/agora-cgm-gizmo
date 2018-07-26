@@ -28,3 +28,6 @@ template_dir="$PROJECT_DIR/code/task/template"
 sed "${replace[@]}" "$template_dir/job-tscc.sh" > job-tscc.sh
 sed "${replace[@]}" "$template_dir/run-conda.sh" > run-conda.sh
 chmod +x *.sh
+
+# Report
+echo "$SIM_DIR initialized"
