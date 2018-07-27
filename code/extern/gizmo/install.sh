@@ -31,5 +31,5 @@ mv GIZMO-* "$LOCAL_PREFIX/bin/"
 # Test
 for config in "$REPO_DIR"/data/sim-spec/config/*.sh; do
     label="$(basename "$config" .sh)"
-    commond -v "GIZMO-$label"
+    command -v "GIZMO-$label"
 done
