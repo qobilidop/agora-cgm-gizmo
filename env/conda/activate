@@ -17,9 +17,11 @@ export LOCAL_LDFLAGS=-Wl,-rpath,"$LOCAL_CONDA_PREFIX/lib"
 export LOCAL_MPIFLAGS=
 export LOCAL_OMPFLAGS=-fopenmp
 
-export LOCAL_CODES="fftw grackle gizmo"
-export LOCAL_FFTW_INC="-I$LOCAL_PREFIX/include"
-export LOCAL_FFTW_LIB="-L$LOCAL_PREFIX/lib"
+export LOCAL_CODES="grackle gizmo"
+export LOCAL_FFTW2_INC="-I$LOCAL_CONDA_PREFIX/include"
+export LOCAL_FFTW2_LIB="-L$LOCAL_CONDA_PREFIX/lib"
+export LOCAL_FFTW3_INC="-I$LOCAL_CONDA_PREFIX/include"
+export LOCAL_FFTW3_LIB="-L$LOCAL_CONDA_PREFIX/lib"
 export LOCAL_GSL_INC="-I$LOCAL_CONDA_PREFIX/include"
 export LOCAL_GSL_LIB="-L$LOCAL_CONDA_PREFIX/lib"
 export LOCAL_HDF5_INC="-I$LOCAL_CONDA_PREFIX/include"
