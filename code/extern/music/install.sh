@@ -17,7 +17,7 @@ patch < "$REPO_DIR/code/extern/music/Makefile.diff"
 export CC="$LOCAL_CXX"
 export OPT="-Wno-unknown-pragmas"
 export CFLAGS="$LOCAL_CFLAGS"
-export LFLAGS="$LOCAL_LDFLAGS -lgsl -lgslcblas"
+export LFLAGS="$LOCAL_LDFLAGS"
 export CPATHS="-I. "$LOCAL_FFTW3_INC" "$LOCAL_GSL_INC" "$LOCAL_HDF5_INC""
 export LPATHS=""$LOCAL_FFTW3_LIB" "$LOCAL_GSL_LIB" "$LOCAL_HDF5_LIB""
 make -j

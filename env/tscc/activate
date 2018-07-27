@@ -25,6 +25,6 @@ module load fftw/3.3.4
 export LOCAL_FFTW3_INC="-I$FFTWHOME/include"
 export LOCAL_FFTW3_LIB="-L$FFTWHOME/lib"
 export LOCAL_GSL_INC="-I$GSLHOME/include"
-export LOCAL_GSL_LIB="-L$GSLHOME/lib"
+export LOCAL_GSL_LIB="-L$GSLHOME/lib -lgsl -lgslcblas"
 export LOCAL_HDF5_INC="-I$HDF5HOME/include -I$MPIHOME/include"
 export LOCAL_HDF5_LIB="-L$HDF5HOME/lib -lhdf5 -lz"
