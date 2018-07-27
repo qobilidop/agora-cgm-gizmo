@@ -18,9 +18,12 @@ export LOCAL_LDFLAGS=
 export LOCAL_MPIFLAGS=-mt_mpi
 export LOCAL_OMPFLAGS=-openmp
 
-export LOCAL_CODES="grackle gizmo"
-export LOCAL_FFTW_INC="-I$FFTWHOME/include"
-export LOCAL_FFTW_LIB="-L$FFTWHOME/lib"
+export LOCAL_CODES="grackle gizmo music"
+export LOCAL_FFTW2_INC="-I$FFTWHOME/include"
+export LOCAL_FFTW2_LIB="-L$FFTWHOME/lib"
+module load fftw/3.3.4
+export LOCAL_FFTW3_INC="-I$FFTWHOME/include"
+export LOCAL_FFTW3_LIB="-L$FFTWHOME/lib"
 export LOCAL_GSL_INC="-I$GSLHOME/include"
 export LOCAL_GSL_LIB="-L$GSLHOME/lib"
 export LOCAL_HDF5_INC="-I$HDF5HOME/include -I$MPIHOME/include"
