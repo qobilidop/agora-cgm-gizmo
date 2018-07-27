@@ -3,7 +3,11 @@
 scratch/
 *.log
 
-# Select from https://github.com/github/gitignore/blob/master/Python.gitignore
+# Selected from https://github.com/github/gitignore/blob/master/Python.gitignore
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+*.egg-info/

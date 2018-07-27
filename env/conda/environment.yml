@@ -12,3 +12,8 @@ dependencies:
   - gsl
   - hdf5
   - libtool
+  # Analysis Tools
+  - matplotlib
+  - pandas
+  - python=3
+  - yt
