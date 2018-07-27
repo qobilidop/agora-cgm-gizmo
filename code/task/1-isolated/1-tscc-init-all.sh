@@ -11,7 +11,7 @@ for sim_config in sim-config/isolated-*.sh; do
         mkdir -p "sim/$SIM_NAME"
         cd "sim/$SIM_NAME"
         ## IC
-        cp "$REPO_DIR/data/sim-config/ic/isolated/low.dat" ic.dat
+        cp "$REPO_DIR/data/ic/isolated/low.dat" ic.dat
         ## GIZMO files
         cp "$REPO_DIR/.local/opt/gizmo-agora/cooling/TREECOOL" .
         cp "$REPO_DIR/data/sim-config/params/$SIM_GIZMO_PARAMS" .
