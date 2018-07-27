@@ -9,7 +9,7 @@ set -e
 cd "$REPO_DIR"
 source env/activate
 
-cd "data/ic/cosmological"
+cd "data/sim-spec/ic/cosmological"
 if [ ! -f 1e12q.dat ]; then
     # Run MUSIC in a temperary directory
     mkdir -p 1e12q
