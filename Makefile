@@ -14,8 +14,12 @@ purge:
 
 .PHONY: deploy
 deploy:
-	rsync -aKmvz --update --delete-after --filter=":- .gitignore" --exclude=".git" ./ $(REMOTE_WORK)/
+	rsync -aKmvz --update --delete-after \
+	--filter=':- .gitignore' --exclude='.git' \
+	./ $(REMOTE_WORK)/
 
 .PHONY: capture
 capture:
-	rsync -amvz --update --delete-excluded --exclude="restartfiles" $(REMOTE_WORK)/data/ data/
+	rsync -amvz --update \
+	--include='/sim/*/output/*.hdf5' --include='*/' --exclude='*' \
+	$(REMOTE_WORK)/data/ data/
