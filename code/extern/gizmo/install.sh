@@ -11,27 +11,27 @@ hg clone "$remote" -u "$branch"
 cd gizmo-agora
 
 # Patch
-cp -f "$PROJECT_DIR/code/extern/gizmo/Makefile.systype" .
+cp -f "$REPO_DIR/code/extern/gizmo/Makefile.systype" .
 
 # Compile
 make clean
 ## No star formation
-cp "$PROJECT_DIR/code/extern/gizmo/Config-nsf.sh" Config.sh
+cp "$REPO_DIR/code/extern/gizmo/Config-nsf.sh" Config.sh
 make -j
 mv GIZMO GIZMO-nsf
 make clean
 ## Thermal feedback
-cp "$PROJECT_DIR/code/extern/gizmo/Config-tfb.sh" Config.sh
+cp "$REPO_DIR/code/extern/gizmo/Config-tfb.sh" Config.sh
 make -j
 mv GIZMO GIZMO-tfb
 make clean
 ## Thermal feedback with delayed coooling
-cp "$PROJECT_DIR/code/extern/gizmo/Config-tfb-dc.sh" Config.sh
+cp "$REPO_DIR/code/extern/gizmo/Config-tfb-dc.sh" Config.sh
 make -j
 mv GIZMO GIZMO-tfb-dc
 make clean
 ## Mechanical feedback
-cp "$PROJECT_DIR/code/extern/gizmo/Config-mfb.sh" Config.sh
+cp "$REPO_DIR/code/extern/gizmo/Config-mfb.sh" Config.sh
 make -j
 mv GIZMO GIZMO-mfb
 make clean

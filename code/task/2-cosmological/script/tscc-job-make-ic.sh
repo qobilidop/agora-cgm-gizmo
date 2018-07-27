@@ -6,7 +6,7 @@
 #PBS -V
 set -e
 
-cd "$PROJECT_DIR"
+cd "$REPO_DIR"
 source env/activate
 
 cd "data/ic/cosmological"

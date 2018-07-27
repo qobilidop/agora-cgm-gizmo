@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-echo "$PROJECT_DIR"
-cd "$PROJECT_DIR"
+echo "$REPO_DIR"
+cd "$REPO_DIR"
 source env/activate
 
 echo "Initialize local env: $LOCAL_ENV"

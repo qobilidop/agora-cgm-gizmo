@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$PROJECT_DIR"
+cd "$REPO_DIR"
 source env/activate
 
 cd "data/sim/{sim_name}"

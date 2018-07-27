@@ -11,7 +11,7 @@ hg clone "$remote" -u "$branch"
 cd grackle-gizmo-agora
 
 # Patch
-cp -f "$PROJECT_DIR/code/extern/grackle/Make.mach.local" src/clib/Make.mach.local
+cp -f "$REPO_DIR/code/extern/grackle/Make.mach.local" src/clib/Make.mach.local
 
 # Compile & Install
 ./configure

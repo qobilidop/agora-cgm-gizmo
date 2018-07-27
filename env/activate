@@ -4,16 +4,16 @@
 # from the project root directory.
 
 # Export project environment
-export PROJECT_NAME="agora-gizmo"
-export PROJECT_DIR="$PWD"
-export LOCAL_PREFIX="$PROJECT_DIR/.local"
+export REPO_NAME="agora-gizmo"
+export REPO_DIR="$PWD"
+export LOCAL_PREFIX="$REPO_DIR/.local"
 export LOCAL_CONDA_PREFIX="$LOCAL_PREFIX/conda-env"
 export LOCAL_ENV_FILE="$LOCAL_PREFIX/env"
 
 # Alter system environment
 mkdir -p "$LOCAL_PREFIX/bin"
 export PATH="$LOCAL_PREFIX/bin:$PATH"
-export PATH="$PROJECT_DIR/code/bin:$PATH"
+export PATH="$REPO_DIR/code/bin:$PATH"
 
 # Activate conda env
 if [ -d "$LOCAL_CONDA_PREFIX/conda-meta" ]; then

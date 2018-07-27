@@ -11,7 +11,7 @@ hg clone "$remote" -u "$branch"
 cd music
 
 # Patch
-patch < "$PROJECT_DIR/code/extern/music/Makefile.diff"
+patch < "$REPO_DIR/code/extern/music/Makefile.diff"
 
 # Compile
 export CC="$LOCAL_CXX"

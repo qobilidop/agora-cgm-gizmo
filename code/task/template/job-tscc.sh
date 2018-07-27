@@ -7,7 +7,7 @@
 #PBS -j oe
 #PBS -o {sim_name}.log
 
-cd "$PROJECT_DIR"
+cd "$REPO_DIR"
 source env/activate
 
 cd "data/sim/{sim_name}"
