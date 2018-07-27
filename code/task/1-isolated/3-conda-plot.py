@@ -12,17 +12,17 @@ from src.env import repo_dir
 yt.mylog.setLevel(40)
 
 sims = OrderedDict([
-    ('tfb', 'Thermal Feedback'),
-    ('tfb-dc', 'Thermal Feedback with Delayed Cooling'),
-    ('mfb', 'Mechanical Feedback')
+    ('isolated-common-old', 'Old Common Feedback'),
+    ('isolated-common', 'Common Feedback'),
+    ('isolated-favorite', 'Favorite Feedback')
 ])
 
 sfh = {}
 for name in sims.keys():
-    sfh_file = repo_dir / f'data/sfh/iso-{name}.hdf5'
+    sfh_file = repo_dir / f'data/sfh/{name}.hdf5'
     if not sfh_file.exists():   
         # Make SFH table
-        output_dir = repo_dir / f'data/sim/iso-{name}/output'
+        output_dir = repo_dir / f'data/sim/{name}/output'
         rows = []
         for snap in sorted(Path(output_dir).glob('*.hdf5')):
             ds = yt.load(str(snap), bounding_box=[[-1e3, 1e3]]*3)
@@ -53,5 +53,5 @@ for name, label in sims.items():
 ax.legend()
 ax.set_xlabel('Time [$Gyr$]')
 ax.set_ylabel('Stellar Mass [$M_\odot$]')
-fig.savefig(repo_dir / 'data/sfh/iso.pdf', dpi=200)
-fig.savefig(repo_dir / 'data/sfh/iso.png', dpi=200)
+fig.savefig(repo_dir / 'data/sfh/isolated.pdf', dpi=200)
+fig.savefig(repo_dir / 'data/sfh/isolated.png', dpi=200)

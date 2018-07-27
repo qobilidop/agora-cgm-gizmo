@@ -15,5 +15,6 @@ dependencies:
   # Analysis Tools
   - matplotlib
   - pandas
+  - pytables
   - python=3
   - yt

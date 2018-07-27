@@ -16,9 +16,9 @@ cp -f "$REPO_DIR/code/extern/gizmo/Makefile.systype" .
 # Compile
 make clean
 ## No star formation
-cp "$REPO_DIR/code/extern/gizmo/Config-nsf.sh" Config.sh
+cp "$REPO_DIR/code/extern/gizmo/Config-nosf.sh" Config.sh
 make -j
-mv GIZMO GIZMO-nsf
+mv GIZMO GIZMO-nosf
 make clean
 ## Thermal feedback
 cp "$REPO_DIR/code/extern/gizmo/Config-tfb.sh" Config.sh
@@ -40,7 +40,7 @@ make clean
 mv GIZMO* "$LOCAL_PREFIX/bin/"
 
 # Test
-which GIZMO-nsf
+which GIZMO-nosf
 which GIZMO-tfb
 which GIZMO-tfb-dc
 which GIZMO-mfb
