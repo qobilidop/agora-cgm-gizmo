@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
+PKG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 mkdir -p "$LOCAL_PREFIX/opt"
 cd "$LOCAL_PREFIX/opt"
 
@@ -11,7 +12,7 @@ hg clone "$remote" -u "$branch"
 cd music
 
 # Patch
-patch < "$REPO_DIR/code/extern/music/Makefile.diff"
+patch < "$PKG_DIR/Makefile.diff"
 
 # Compile
 export CC="$LOCAL_CXX"

@@ -1,4 +1,4 @@
-echo "conda" > "$LOCAL_ENV_FILE"
+echo "conda" > "$LOCAL_SYS_FILE"
 
 export LOCAL_CC=gcc
 export LOCAL_CXX=g++

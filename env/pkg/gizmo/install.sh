@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
+PKG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 mkdir -p "$LOCAL_PREFIX/opt"
 cd "$LOCAL_PREFIX/opt"
 
@@ -11,7 +12,7 @@ hg clone "$remote" -u "$branch"
 cd gizmo-agora
 
 # Patch
-cp -f "$REPO_DIR/code/extern/gizmo/Makefile.systype" .
+cp -f "$PKG_DIR/Makefile.systype" .
 
 # Compile
 for config in "$REPO_DIR"/data/sim-spec/config/*.sh; do

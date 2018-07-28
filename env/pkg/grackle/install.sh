@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
+PKG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 mkdir -p "$LOCAL_PREFIX/opt"
 cd "$LOCAL_PREFIX/opt"
 
@@ -11,7 +12,7 @@ hg clone "$remote" -u "$branch"
 cd grackle-gizmo-agora
 
 # Patch
-cp -f "$REPO_DIR/code/extern/grackle/Make.mach.local" src/clib/Make.mach.local
+cp -f "$PKG_DIR/Make.mach.local" src/clib/Make.mach.local
 
 # Compile & Install
 ./configure

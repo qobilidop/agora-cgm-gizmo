@@ -1,4 +1,4 @@
-echo "tscc" > "$LOCAL_ENV_FILE"
+echo "tscc" > "$LOCAL_SYS_FILE"
 
 module purge
 module load intel/2013_sp1.2.144 openmpi_ib/1.8.4

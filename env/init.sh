@@ -5,9 +5,9 @@ echo "$REPO_DIR"
 cd "$REPO_DIR"
 source env/activate
 
-echo "Initialize local env: $LOCAL_ENV"
-./env/"$LOCAL_ENV"/init.sh
+echo "Initialize local sys: $LOCAL_SYS"
+./env/sys/"$LOCAL_SYS"/init.sh
 source env/activate
 
-echo "Install external code"
-./code/extern/install-all.sh
+echo "Install packages"
+./env/pkg/install-all.sh
