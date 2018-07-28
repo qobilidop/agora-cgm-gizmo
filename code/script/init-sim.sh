@@ -2,15 +2,15 @@
 set -e
 
 # Prepare data files
-mkdir -p "sim/$SIM_NAME"
-cd "sim/$SIM_NAME"
+mkdir -p "$REPO_DIR/data/sim/$SIM_NAME"
+cd "$REPO_DIR/data/sim/$SIM_NAME"
 ## IC
-cp "$REPO_DIR/data/sim-spec/ic/$SIM_IC" ic.dat
+cp "$REPO_DIR/data/ic/$SIM_IC" ic.dat
 ## GIZMO files
 cp "$REPO_DIR/.local/opt/gizmo-agora/cooling/TREECOOL" .
-cp "$REPO_DIR/data/sim-spec/params/$GIZMO_PARAMS.txt" params.txt
+cp "$REPO_DIR/code/config/gizmo/params/$GIZMO_PARAMS.txt" params.txt
 ## Grackle files
-cp "${REPO_DIR}/.local/opt/grackle-gizmo-agora/input/CloudyData_UVB=HM2012.h5" .
+cp "$REPO_DIR/.local/opt/grackle-gizmo-agora/input/CloudyData_UVB=HM2012.h5" .
 
 # Prepare scripts
 mkdir -p script

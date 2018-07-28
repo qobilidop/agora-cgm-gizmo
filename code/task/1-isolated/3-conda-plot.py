@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import yt
 
-from src.env import repo_dir
+from util import repo_dir
 
 
 yt.mylog.setLevel(40)

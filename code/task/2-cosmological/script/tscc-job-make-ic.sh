@@ -9,14 +9,14 @@ set -e
 cd "$REPO_DIR"
 source env/activate
 
-cd "data/sim-spec/ic/cosmological"
+cd data/ic
 if [ ! -f 1e12q.dat ]; then
     # Run MUSIC in a temperary directory
-    mkdir -p 1e12q
-    cd 1e12q
-    MUSIC ../1e12q.conf
-    # Save IC data & remove all the rest
-    mv 1e12q.dat ../
+    mkdir -p temp
+    cd temp
+    MUSIC "$REPO_DIR/code/config/ic/1e12q.conf"
     cd -
-    rm -rf 1e12q
+    # Save IC data & remove all the rest
+    mv temp/1e12q.dat .
+    rm -rf temp
 fi

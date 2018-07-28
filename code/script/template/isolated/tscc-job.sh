@@ -5,7 +5,7 @@
 #PBS -l walltime=8:00:00
 #PBS -V
 #PBS -j oe
-#PBS -o {sim_name}.log
+#PBS -o tscc-job.log
 
 cd "$REPO_DIR"
 source env/activate

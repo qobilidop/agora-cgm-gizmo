@@ -14,7 +14,7 @@ export LOCAL_SYS_FILE="$LOCAL_PREFIX/local-sys"
 export PATH="$REPO_DIR/env/bin:$PATH"
 mkdir -p "$LOCAL_PREFIX/bin"
 export PATH="$LOCAL_PREFIX/bin:$PATH"
-export PATH="$REPO_DIR/code/bin:$PATH"
+export PATH="$REPO_DIR/code/script:$PATH"
 
 # Activate conda env
 if [ -d "$LOCAL_CONDA_PREFIX/conda-meta" ]; then

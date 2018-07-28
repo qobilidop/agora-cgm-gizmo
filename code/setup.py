@@ -4,6 +4,6 @@ from setuptools import (
 )
 
 setup(
-    name = 'src',
+    name = 'util',
     packages = find_packages(),
 )
