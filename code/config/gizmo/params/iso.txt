@@ -58,7 +58,7 @@ OmegaBaryon             0       % =0 for non-cosmological
 HubbleParam             1       % little 'h'; =1 for non-cosmological runs
 
 %----- Memory alloction
-MaxMemSize          2000    % sets maximum MPI process memory use in MByte
+MaxMemSize          4000    % sets maximum MPI process memory use in MByte
 PartAllocFactor     2.5     % memory load allowed for better cpu balance
 BufferSize          100     % in MByte
 
