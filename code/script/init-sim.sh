@@ -8,7 +8,6 @@ cd "$REPO_DIR/data/sim/$SIM_NAME"
 cp "$REPO_DIR/data/ic/$SIM_IC" ic.dat
 ## GIZMO files
 cp "$REPO_DIR/.local/opt/gizmo-agora/cooling/TREECOOL" .
-cp "$REPO_DIR/code/config/gizmo/output-times.txt" .
 cp "$REPO_DIR/code/config/gizmo/params/$GIZMO_PARAMS.txt" params.txt
 ## Grackle files
 cp "$REPO_DIR/.local/opt/grackle-gizmo-agora/input/CloudyData_UVB=HM2012.h5" .
