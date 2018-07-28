@@ -1,5 +1,10 @@
 #!/usr/bin/env python
+"""Make output times file.
+
+The scheme is according to Kim+2013 4.1.2.
+"""
 import numpy as np
+
 
 a = np.linspace(0, 1, 201)
 z = np.array([6, 3, 2, 1, 0.5, 0.2, 0.0])
