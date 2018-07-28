@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Make output times file.
 
-The scheme is according to Kim+2013 4.1.2.
+See https://arxiv.org/abs/1308.2669 4.2 Data management.
 """
 import numpy as np
 
