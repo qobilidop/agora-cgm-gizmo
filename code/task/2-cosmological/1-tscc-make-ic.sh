@@ -2,4 +2,5 @@
 set -e
 
 cd "$(dirname "$0")"
-qsub script/tscc-job-make-ic.sh
+cd script
+qsub tscc-job-make-ic.sh

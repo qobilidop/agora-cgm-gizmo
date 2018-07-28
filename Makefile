@@ -21,5 +21,5 @@ deploy:
 .PHONY: capture
 capture:
 	rsync -amvz --update \
-	--include='/sim/*/output/*.hdf5' --include='*/' --exclude='*' \
+	--include='/ic/*.dat' --include='/sim/*/output/*.hdf5' --include='*/' --exclude='*' \
 	$(REMOTE_WORK)/data/ data/
