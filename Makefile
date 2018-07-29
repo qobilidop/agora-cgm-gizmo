@@ -12,14 +12,20 @@ init:
 purge:
 	rm -rf .local
 
-.PHONY: deploy
-deploy:
-	rsync -aKmvz --update --delete-after \
-	--filter=':- .gitignore' --exclude='.git' \
-	./ $(REMOTE_WORK)/
+rsync-base = rsync -aKmvz --update
+rsync-gitignore = $(rsync-base) --delete-after --filter=':- .gitignore' --exclude='.git'
 
-.PHONY: capture
-capture:
-	rsync -amvz --update \
-	--include='/ic/*.dat' --include='/sim/*/output/*.hdf5' --include='*/' --exclude='*' \
-	$(REMOTE_WORK)/data/ data/
+.PHONY: deploy-tscc capture-tscc-data
+deploy-tscc:
+	$(rsync-gitignore) ./ tscc:~/project/agora-gizmo/
+capture-tscc-data:
+	$(rsync-base) --delete-excluded \
+	--include='/isolated-*/output/*.hdf5' --include='*/' --exclude='*' \
+	tscc:~/project/agora-gizmo/data/sim/ data/sim/
+
+.PHONY: deploy-edison deploy-edison-data
+deploy-edison:
+	$(rsync-gitignore) ./ edison:~/project/agora-gizmo/
+deploy-edison-data:
+	$(rsync-base) --exclude='/sim/cosmological-*/***' \
+	data/ edison:~/project/agora-gizmo/data/
