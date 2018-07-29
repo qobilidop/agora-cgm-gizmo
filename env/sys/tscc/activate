@@ -7,14 +7,15 @@ module load fftw/3.3.4 gsl/1.16 hdf5/1.8.14
 export LOCAL_CC=icc
 export LOCAL_CXX=icpc
 export LOCAL_FC=ifort
-export LOCAL_LIB="-L$LOCAL_PREFIX/lib -L$INTELHOME/compiler/lib/intel64/lib -lm -lifcore -lifport"
 
 export LOCAL_MPICC=mpicc
 export LOCAL_MPICXX=mpicxx
 export LOCAL_MPIFC=mpifort
 
 export LOCAL_CFLAGS=-O3
-export LOCAL_LDFLAGS=
+LOCAL_LDFLAGS="-L$LOCAL_PREFIX/lib -Wl,-rpath -Wl,$LOCAL_PREFIX/lib"
+LOCAL_LDFLAGS="$LOCAL_LDFLAGS -lm -lifcore -lifport"
+export LOCAL_LDFLAGS
 export LOCAL_MPIFLAGS=
 export LOCAL_OMPFLAGS=-openmp
 

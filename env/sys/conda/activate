@@ -3,7 +3,6 @@ echo "conda" > "$LOCAL_SYS_FILE"
 export LOCAL_CC=gcc
 export LOCAL_CXX=g++
 export LOCAL_FC=gfortran
-export LOCAL_LIB="-L$LOCAL_PREFIX/lib -L$LOCAL_PREFIX/lib"
 
 export OMPI_CC=gcc
 export OMPI_CXX=g++
@@ -13,7 +12,10 @@ export LOCAL_MPICXX=mpicxx
 export LOCAL_MPIFC=mpifort
 
 export LOCAL_CFLAGS=-O3
-export LOCAL_LDFLAGS=-Wl,-rpath,"$LOCAL_CONDA_PREFIX/lib"
+export LOCAL_LDFLAGS="-L$LOCAL_CONDA_PREFIX/lib -Wl,-rpath -Wl,$LOCAL_CONDA_PREFIX/lib"
+LOCAL_LDFLAGS="-L$LOCAL_PREFIX/lib -Wl,-rpath -Wl,$LOCAL_PREFIX/lib"
+LOCAL_LDFLAGS="$LOCAL_LDFLAGS -L$LOCAL_CONDA_PREFIX/lib -Wl,-rpath -Wl,$LOCAL_CONDA_PREFIX/lib"
+export LOCAL_LDFLAGS
 export LOCAL_MPIFLAGS=
 export LOCAL_OMPFLAGS=-fopenmp
 

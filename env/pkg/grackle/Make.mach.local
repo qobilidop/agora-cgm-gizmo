@@ -52,18 +52,13 @@ MACH_OPT_AGGRESSIVE  = -O3
 # Includes
 #-----------------------------------------------------------------------
 
-LOCAL_INCLUDES_HDF5   = $(LOCAL_HDF5_INC)
-
-MACH_INCLUDES         = $(LOCAL_INCLUDES_HDF5)
+MACH_INCLUDES = $(LOCAL_HDF5_INC)
 
 #-----------------------------------------------------------------------
 # Libraries
 #-----------------------------------------------------------------------
 
-LOCAL_LIBS_HDF5   = $(LOCAL_HDF5_LIB)
-LOCAL_LIBS_MACH   = $(LOCAL_LIB) $(LOCAL_LDFLAGS)
-
-MACH_LIBS         = $(LOCAL_LIBS_HDF5) $(LOCAL_LIBS_MACH)
+MACH_LIBS     = $(LOCAL_HDF5_LIB) $(LOCAL_LDFLAGS)
 
 #-----------------------------------------------------------------------
 # Installation
