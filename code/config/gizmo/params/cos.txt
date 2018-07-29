@@ -30,8 +30,8 @@ ResubmitOn              0
 ResubmitCommand         my-scriptfile
 
 %---- Desired simulation beginning and end times (in code units) for run
-TimeBegin   0.009901 % z = 100, Beginning of the simulation
-TimeMax     1        % z = 0, End of the simulation
+TimeBegin   0.00990099 % z = 100, Beginning of the simulation
+TimeMax     1          % z = 0, End of the simulation
 
 %---- Maximum and minimum timesteps allowed
 MaxSizeTimestep         0.005   % in code units, set for your problem
