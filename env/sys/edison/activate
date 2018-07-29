@@ -1,5 +1,7 @@
 echo "edison" > "$LOCAL_SYS_FILE"
 
+export LOCAL_CODES="grackle gizmo"
+
 cp "$REPO_DIR/env/sys/edison/module-snapshot-agora" "$HOME/.module_snapshots/agora"
 module purge
 module restore agora
@@ -23,14 +25,7 @@ export LOCAL_OMPFLAGS=-qopenmp
 
 export LOCAL_FFTW2_INC="-I$FFTW_INC"
 export LOCAL_FFTW2_LIB="-L$FFTW_DIR"
-module switch fftw cray-fftw/3.3.6.3
-export LOCAL_FFTW3_INC="-I$FFTW_INC"
-export LOCAL_FFTW3_LIB="-L$FFTW_DIR"
 export LOCAL_GSL_INC="-I$GSL_DIR/include"
 export LOCAL_GSL_LIB="-L$GSL_DIR/lib -lgsl -lgslcblas"
-export LOCAL_HDF5_INC="-I$HDF5_DIR/include -I$MPIHOME/include"
+export LOCAL_HDF5_INC="-I$HDF5_DIR/include"
 export LOCAL_HDF5_LIB="-L$HDF5_DIR/lib -lhdf5 -lz"
-
-export LOCAL_CODES="grackle gizmo music"
-export LOCAL_MUSIC_CFLAGS="-fPIC"
-export LOCAL_MUSIC_LDFLAGS="-shared"

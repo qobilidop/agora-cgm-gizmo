@@ -1,8 +1,10 @@
 echo "tscc" > "$LOCAL_SYS_FILE"
 
+export LOCAL_CODES="fftw2 grackle gizmo"
+
 module purge
 module load intel/2013_sp1.2.144 openmpi_ib/1.8.4
-module load fftw/3.3.4 gsl/1.16 hdf5/1.8.14
+module load gsl/1.16 hdf5/1.8.14
 
 export LOCAL_CC=icc
 export LOCAL_CXX=icpc
@@ -21,11 +23,7 @@ export LOCAL_OMPFLAGS=-openmp
 
 export LOCAL_FFTW2_INC="-I$LOCAL_PREFIX/include"
 export LOCAL_FFTW2_LIB="-L$LOCAL_PREFIX/lib"
-export LOCAL_FFTW3_INC="-I$FFTWHOME/include"
-export LOCAL_FFTW3_LIB="-L$FFTWHOME/lib"
 export LOCAL_GSL_INC="-I$GSLHOME/include"
 export LOCAL_GSL_LIB="-L$GSLHOME/lib -lgsl -lgslcblas"
 export LOCAL_HDF5_INC="-I$HDF5HOME/include -I$MPIHOME/include"
 export LOCAL_HDF5_LIB="-L$HDF5HOME/lib -lhdf5 -lz"
-
-export LOCAL_CODES="fftw2 grackle gizmo music"
