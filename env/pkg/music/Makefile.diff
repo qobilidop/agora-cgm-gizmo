@@ -1,6 +1,6 @@
 --- Makefile
 +++ Makefile
-@@ -9,12 +9,12 @@
+@@ -9,24 +9,24 @@
  
  ##############################################################################
  ### compiler and path settings
@@ -19,3 +19,22 @@
  
  ##############################################################################
  # if you have FFTW 2.1.5 or 3.x with multi-thread support, you can enable the 
+ # option MULTITHREADFFTW
+ ifeq ($(strip $(MULTITHREADFFTW)), yes)
+-  ifeq ($(CC), mpiicpc)
+-    CFLAGS += -openmp
+-    LFLAGS += -openmp
+-  else
+-    CFLAGS += -fopenmp
+-    LFLAGS += -fopenmp
+-  endif
++#  ifeq ($(CC), mpiicpc)
++#    CFLAGS += -openmp
++#    LFLAGS += -openmp
++#  else
++#    CFLAGS += -fopenmp
++#    LFLAGS += -fopenmp
++#  endif
+   ifeq ($(strip $(FFTW3)),yes)
+ 	ifeq ($(strip $(SINGLEPRECISION)), yes)
+ 		LFLAGS  +=  -lfftw3f_threads

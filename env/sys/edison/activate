@@ -1,0 +1,36 @@
+echo "edison" > "$LOCAL_SYS_FILE"
+
+cp "$REPO_DIR/env/sys/edison/module-snapshot-agora" "$HOME/.module_snapshots/agora"
+module purge
+module restore agora
+module load impi/2018.up1
+module load cray-hdf5/1.10.1.1 fftw/2.1.5.9 gsl/2.3
+
+export LOCAL_CC=cc
+export LOCAL_CXX=CC
+export LOCAL_FC=ftn
+
+export LOCAL_MPICC=mpiicc
+export LOCAL_MPICXX=mpiicpc
+export LOCAL_MPIFC=mpiifort
+
+export LOCAL_CFLAGS="-O3"
+LOCAL_LDFLAGS="-L$LOCAL_PREFIX/lib -Wl,-rpath -Wl,$LOCAL_PREFIX/lib"
+LOCAL_LDFLAGS="$LOCAL_LDFLAGS -lm -lifcore -lifport"
+export LOCAL_LDFLAGS
+export LOCAL_MPIFLAGS=
+export LOCAL_OMPFLAGS=-qopenmp
+
+export LOCAL_FFTW2_INC="-I$FFTW_INC"
+export LOCAL_FFTW2_LIB="-L$FFTW_DIR"
+module switch fftw cray-fftw/3.3.6.3
+export LOCAL_FFTW3_INC="-I$FFTW_INC"
+export LOCAL_FFTW3_LIB="-L$FFTW_DIR"
+export LOCAL_GSL_INC="-I$GSL_DIR/include"
+export LOCAL_GSL_LIB="-L$GSL_DIR/lib -lgsl -lgslcblas"
+export LOCAL_HDF5_INC="-I$HDF5_DIR/include -I$MPIHOME/include"
+export LOCAL_HDF5_LIB="-L$HDF5_DIR/lib -lhdf5 -lz"
+
+export LOCAL_CODES="grackle gizmo music"
+export LOCAL_MUSIC_CFLAGS="-fPIC"
+export LOCAL_MUSIC_LDFLAGS="-shared"

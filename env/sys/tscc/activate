@@ -19,7 +19,6 @@ export LOCAL_LDFLAGS
 export LOCAL_MPIFLAGS=
 export LOCAL_OMPFLAGS=-openmp
 
-export LOCAL_CODES="fftw2 grackle gizmo music"
 export LOCAL_FFTW2_INC="-I$LOCAL_PREFIX/include"
 export LOCAL_FFTW2_LIB="-L$LOCAL_PREFIX/lib"
 export LOCAL_FFTW3_INC="-I$FFTWHOME/include"
@@ -28,3 +27,5 @@ export LOCAL_GSL_INC="-I$GSLHOME/include"
 export LOCAL_GSL_LIB="-L$GSLHOME/lib -lgsl -lgslcblas"
 export LOCAL_HDF5_INC="-I$HDF5HOME/include -I$MPIHOME/include"
 export LOCAL_HDF5_LIB="-L$HDF5HOME/lib -lhdf5 -lz"
+
+export LOCAL_CODES="fftw2 grackle gizmo music"
