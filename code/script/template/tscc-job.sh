@@ -12,7 +12,9 @@ source env/activate
 
 cd "data/sim/{sim_name}"
 export OMP_NUM_THREADS={gizmo_omp}
-RUN="mpirun -v -machinefile $PBS_NODEFILE -npernode $((16/{gizmo_omp})) GIZMO-{gizmo_config} params.txt"
+RUN="mpirun -v -machinefile $PBS_NODEFILE --map-by ppr:$((16/{gizmo_omp})):node"
+RUN="$RUN -x PATH -x LD_LIBRARY_PATH -x OMP_NUM_THREADS"
+RUN="$RUN GIZMO-{gizmo_config} params.txt"
 if [ -d output/restartfiles ]; then
     $RUN 1
 else
