@@ -12,8 +12,8 @@ source env/activate
 
 cd "data/sim/{sim_name}"
 export OMP_NUM_THREADS={gizmo_omp}
-ppn=$(($SLURM_CPUS_ON_NODE / $OMP_NUM_THREADS))
-RUN="mpirun -print-rank-map -ppn $ppn GIZMO-{gizmo_config} params.txt"
+ppn=$(($SLURM_CPUS_ON_NODE/$OMP_NUM_THREADS))
+RUN="srun --ntasks-per-node $ppn -c $OMP_NUM_THREADS GIZMO-{gizmo_config} params.txt"
 if [ -d output/restartfiles ]; then
     $RUN 1
 else
