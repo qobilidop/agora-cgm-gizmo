@@ -67,27 +67,27 @@ MinGasTemp      10.     % don't set <10 in explicit feedback runs, otherwise 0
 %---- Hydro reconstruction (kernel) parameters
 DesNumNgb               32         % domain-reconstruction kernel number: 32 standard, 60-114 for quintic
 MaxHsml                 1.0e8      % minimum gas kernel length (some very large value to prevent errors)
-MinGasHsmlFractional    0.07142857 % minimum kernel length relative to gas force softening (<= 1)
+MinGasHsmlFractional    0.2        % minimum kernel length relative to gas force softening (<= 1)
 
 %---- Gravitational softening lengths
 %----- Softening lengths per particle type. If ADAPTIVE_GRAVSOFT is set, these
 %-------- are the minimum softening allowed for each type -------
 %-------- (units are co-moving for cosmological integrations)
-SofteningGas    2.26044  % gas (particle type=0) (in co-moving code units)
-SofteningHalo   2.26044  % dark matter/collisionless particles (type=1)
-SofteningDisk   2.26044  % collisionless particles (type=2)
-SofteningBulge  2.26044  % collisionless particles (type=3)
-SofteningStars  2.26044  % stars spawned from gas (type=4)
-SofteningBndry  2.26044  % black holes (if active), or collisionless (type=5)
+SofteningGas    0.5616   % gas (particle type=0) (in co-moving code units)
+SofteningHalo   0.5616   % dark matter/collisionless particles (type=1)
+SofteningDisk   0.5616   % collisionless particles (type=2)
+SofteningBulge  0.5616   % collisionless particles (type=3)
+SofteningStars  0.5616   % stars spawned from gas (type=4)
+SofteningBndry  0.5616   % black holes (if active), or collisionless (type=5)
 %---- if these are set in cosmo runs, SofteningX switches from comoving to physical
 %------- units when the comoving value exceeds the choice here
 %------- (these are ignored, and *only* the above are used, for non-cosmo runs)
-SofteningGasMaxPhys     0.226044 % = 0.322 kpc = 0.322 * 0.702 kpc/h
-SofteningHaloMaxPhys    0.226044
-SofteningDiskMaxPhys    0.226044
-SofteningBulgeMaxPhys   0.226044
-SofteningStarsMaxPhys   0.226044
-SofteningBndryMaxPhys   0.226044
+SofteningGasMaxPhys     0.05616  % = 80 pc = 0.08 * 0.702 kpc/h
+SofteningHaloMaxPhys    0.05616
+SofteningDiskMaxPhys    0.05616
+SofteningBulgeMaxPhys   0.05616
+SofteningStarsMaxPhys   0.05616
+SofteningBndryMaxPhys   0.05616
 %----- parameters for adaptive gravitational softening
 AGS_DesNumNgb           32  % neighbor number for calculating adaptive gravsoft
 
