@@ -10,5 +10,5 @@ for sim_config in "$REPO_DIR"/code/config/cosmological-*.sh; do
     echo "Initializing $SIM_NAME"
     source "$sim_config"
     init-sim.sh
-    cp "$REPO_DIR/code/config/gizmo/output-times.txt" "$REPO_DIR/data/sim/$SIM_NAME/"
+    cp "$REPO_DIR/data/misc/output-a.txt" "$REPO_DIR/data/sim/$SIM_NAME/output-times.txt"
 done
