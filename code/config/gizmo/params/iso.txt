@@ -24,7 +24,7 @@ TimeBetSnapshot         5.11356e-2 % 50 Myr, time between (if OutputListOn=0), c
 TimeBetStatistics       5.11356e-2 % 50 Myr, time between additional statistics (e.g. energy)
 
 %---- CPU run-time and checkpointing time-limits
-TimeLimitCPU            32000   % in seconds
+TimeLimitCPU            32000   % < 8h / 0.85, in seconds
 CpuTimeBetRestartFile   3600    % in seconds
 ResubmitOn              0
 ResubmitCommand         my-scriptfile
