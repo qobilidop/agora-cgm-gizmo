@@ -17,11 +17,12 @@ mkdir -p script
 cd script
 replace=(
     -e "s/{sim_name}/$SIM_NAME/g"
-    -e "s/{tscc_nodes}/$TSCC_NODES/g"
-    -e "s/{gizmo_omp}/$GIZMO_OMP/g"
     -e "s/{gizmo_config}/$GIZMO_CONFIG/g"
+    -e "s/{gizmo_omp}/$GIZMO_OMP/g"
+    -e "s/{edison_nodes}/$EDISON_NODES/g"
 )
 template_dir="$REPO_DIR/code/script/template"
-sed "${replace[@]}" "$template_dir/tscc-job.sh" > tscc-job.sh
 sed "${replace[@]}" "$template_dir/conda-run.sh" > conda-run.sh
+sed "${replace[@]}" "$template_dir/tscc-job.sh" > tscc-job.sh
+sed "${replace[@]}" "$template_dir/edison-job.sh" > edison-job.sh
 chmod +x ./*.sh

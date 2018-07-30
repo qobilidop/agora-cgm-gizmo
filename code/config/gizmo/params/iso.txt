@@ -1,5 +1,5 @@
 %-------------------------------------------------------------------------
-%----  GIZMO input parameters for AGORA isolated runs
+%----  GIZMO input parameters for AGORA isolated runs on TSCC
 %-------------------------------------------------------------------------
 
 %----  Relevant files (filenames and directories)

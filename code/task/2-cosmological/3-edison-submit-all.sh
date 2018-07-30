@@ -6,6 +6,6 @@ for sim in cosmological-*; do
     echo "Submitting $sim"
     (
         cd "$sim/script"
-        qsub tscc-job.sh
+        sbatch edison-job.sh
     )
 done

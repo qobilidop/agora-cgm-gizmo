@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------
-%----  GIZMO input parameters for AGORA isolated runs
-%      with old solar abundance definition
+%----  GIZMO input parameters for AGORA isolated runs on TSCC
+%      (with old solar abundance definition)
 %-------------------------------------------------------------------------
 
 %----  Relevant files (filenames and directories)
