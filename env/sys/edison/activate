@@ -14,10 +14,8 @@ export LOCAL_MPICC=cc
 export LOCAL_MPICXX=CC
 export LOCAL_MPIFC=ftn
 
-export LOCAL_CFLAGS="-O3"
-LOCAL_LDFLAGS="-L$LOCAL_PREFIX/lib -Wl,-rpath -Wl,$LOCAL_PREFIX/lib"
-LOCAL_LDFLAGS="$LOCAL_LDFLAGS -lm -lifcore -lifport"
-export LOCAL_LDFLAGS
+export LOCAL_CFLAGS="-fast -no-ipo"
+export LOCAL_LDFLAGS="-L$LOCAL_PREFIX/lib -Wl,-rpath -Wl,$LOCAL_PREFIX/lib"
 export LOCAL_MPIFLAGS=
 export LOCAL_OMPFLAGS=-qopenmp
 
