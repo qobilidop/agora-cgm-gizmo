@@ -75,19 +75,19 @@ MinGasHsmlFractional    0.2        % minimum kernel length relative to gas force
 %-------- (units are co-moving for cosmological integrations)
 SofteningGas    0.5616   % gas (particle type=0) (in co-moving code units)
 SofteningHalo   0.5616   % dark matter/collisionless particles (type=1)
-SofteningDisk   0.5616   % collisionless particles (type=2)
-SofteningBulge  0.5616   % collisionless particles (type=3)
+SofteningDisk   101.66   % collisionless particles (type=2)
+SofteningBulge  0        % collisionless particles (type=3)
 SofteningStars  0.5616   % stars spawned from gas (type=4)
-SofteningBndry  0.5616   % black holes (if active), or collisionless (type=5)
+SofteningBndry  0        % black holes (if active), or collisionless (type=5)
 %---- if these are set in cosmo runs, SofteningX switches from comoving to physical
 %------- units when the comoving value exceeds the choice here
 %------- (these are ignored, and *only* the above are used, for non-cosmo runs)
 SofteningGasMaxPhys     0.05616  % = 80 pc = 0.08 * 0.702 kpc/h
 SofteningHaloMaxPhys    0.05616
-SofteningDiskMaxPhys    0.05616
-SofteningBulgeMaxPhys   0.05616
+SofteningDiskMaxPhys    10.166   % = 80 pc * 8^(5/2)
+SofteningBulgeMaxPhys   0
 SofteningStarsMaxPhys   0.05616
-SofteningBndryMaxPhys   0.05616
+SofteningBndryMaxPhys   0
 %----- parameters for adaptive gravitational softening
 AGS_DesNumNgb           32  % neighbor number for calculating adaptive gravsoft
 
