@@ -1,6 +1,5 @@
 .local/
 .vscode/
-scratch/
 *.log
 
 # Selected from https://github.com/github/gitignore/blob/master/Python.gitignore

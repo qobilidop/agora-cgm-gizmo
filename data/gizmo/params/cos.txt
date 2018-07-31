@@ -1,5 +1,5 @@
 %-------------------------------------------------------------------------
-%----  GIZMO input parameters for AGORA cosmological runs on Edison
+%----  GIZMO input parameters for AGORA cosmological runs on TSCC
 %-------------------------------------------------------------------------
 
 %----  Relevant files (filenames and directories)
@@ -24,7 +24,7 @@ TimeBetSnapshot         5.11356e-2 % 50 Myr, time between (if OutputListOn=0), c
 TimeBetStatistics       5.11356e-2 % 50 Myr, time between additional statistics (e.g. energy)
 
 %---- CPU run-time and checkpointing time-limits
-TimeLimitCPU            200000  % < 48h / 0.85, in seconds
+TimeLimitCPU            32000  % < 8h / 0.85, in seconds
 CpuTimeBetRestartFile   3600    % in seconds
 ResubmitOn              0
 ResubmitCommand         my-scriptfile
@@ -53,7 +53,7 @@ OmegaBaryon             0.0455  % =0 for non-cosmological
 HubbleParam             0.702   % little 'h'; =1 for non-cosmological runs
 
 %----- Memory alloction
-MaxMemSize          2500    % sets maximum MPI process memory use in MByte
+MaxMemSize          4000    % sets maximum MPI process memory use in MByte
 PartAllocFactor     2.5     % memory load allowed for better cpu balance
 BufferSize          100     % in MByte
 

@@ -15,7 +15,8 @@ cd gizmo-agora
 cp -f "$PKG_DIR/Makefile.systype" .
 
 # Compile
-for config in "$REPO_DIR"/code/config/gizmo/config/*.sh; do
+gizmo_config_dir="$REPO_DIR/data/gizmo/config"
+for config in "$gizmo_config_dir"/*.sh; do
     label="$(basename "$config" .sh)"
     echo
     echo "Compile version: $label"
@@ -30,7 +31,7 @@ make clean
 mv GIZMO-* "$LOCAL_PREFIX/bin/"
 
 # Test
-for config in "$REPO_DIR"/code/config/gizmo/config/*.sh; do
+for config in "$gizmo_config_dir"/*.sh; do
     label="$(basename "$config" .sh)"
     command -v "GIZMO-$label"
 done

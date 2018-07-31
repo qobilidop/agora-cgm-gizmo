@@ -1,4 +1,4 @@
-echo "conda" > "$LOCAL_SYS_FILE"
+echo "test" > "$LOCAL_SYS_FILE"
 
 export LOCAL_CODES="grackle gizmo music"
 
@@ -20,6 +20,8 @@ LOCAL_LDFLAGS="$LOCAL_LDFLAGS -L$LOCAL_CONDA_PREFIX/lib -Wl,-rpath -Wl,$LOCAL_CO
 export LOCAL_LDFLAGS
 export LOCAL_MPIFLAGS=
 export LOCAL_OMPFLAGS=-fopenmp
+
+export LOCAL_GRACKLE_LDFLAGS=
 
 export LOCAL_FFTW2_INC="-I$LOCAL_CONDA_PREFIX/include"
 export LOCAL_FFTW2_LIB="-L$LOCAL_CONDA_PREFIX/lib"

@@ -2,6 +2,7 @@
 from collections import OrderedDict
 from pathlib import Path
 
+import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 import yt
@@ -9,6 +10,7 @@ import yt
 from util import repo_dir
 
 
+matplotlib.use('Agg')
 yt.mylog.setLevel(40)
 
 sims = OrderedDict([

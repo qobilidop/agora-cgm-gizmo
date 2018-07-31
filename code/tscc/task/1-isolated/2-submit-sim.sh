@@ -2,10 +2,10 @@
 set -e
 
 cd "$REPO_DIR/data/sim"
-for sim in cosmological-*; do
+for sim in isolated-*/; do
     echo "Submitting $sim"
     (
-        cd "$sim/script"
-        sbatch edison-job.sh
+        cd "$sim"
+        qsub tscc-job.sh
     )
 done

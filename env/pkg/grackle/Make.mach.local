@@ -58,7 +58,7 @@ MACH_INCLUDES = $(LOCAL_HDF5_INC)
 # Libraries
 #-----------------------------------------------------------------------
 
-MACH_LIBS     = $(LOCAL_HDF5_LIB) $(LOCAL_LDFLAGS)
+MACH_LIBS     = $(LOCAL_HDF5_LIB) $(LOCAL_LDFLAGS) $(LOCAL_GRACKLE_LDFLAGS)
 
 #-----------------------------------------------------------------------
 # Installation

@@ -3,31 +3,61 @@
 ## Initialize environment
 
 ```bash
+# Init env on my laptop
 source env/activate
-source env/{system}/activate
+source env/conda/activate
 make init
+source env/activate
+
+# Init env on TSCC
+make deploy
+ssh tscc
+cd project/agora-gizmo
+source env/activate
+source env/tscc/activate
+make init
+exit
+## Deploy again to fill the data dir
+make deploy
 ```
 
-`{system}` could be `conda` or `tscc`. `conda` is used on my laptop for testing. `tscc` is used on [TSCC](http://www.sdsc.edu/support/user_guides/tscc.html) for production.
-
 ## Activate environment
+
+Environment must be activated before doing anything else.
 
 ```bash
 source env/activate
 ```
 
-This step must be performed before any following steps.
-
 ## Run simulations
 
-All simulation outputs would be saved in `data/sim`.
+All simulation outputs are saved in `data/sim`.
 
 ### Isolated IC
 
 ```bash
+# Run simulations on TSCC
+make deploy
+ssh tscc
+cd project/agora-gizmo
+source env/activate
 cd code/task/1-isolated
-./all-init.sh
-./all-submit-tscc.sh  # on TSCC where the simulations are run
+./1-tscc-init-all.sh
+./2-tscc-submit-all.sh
+exit
+
+# Make plots on laptop
+make capture
+cd code/task/1-isolated
+./3-conda-plot.py
 ```
 
 ### Cosmological IC
+
+```bash
+make deploy
+ssh tscc
+cd project/agora-gizmo
+cd code/task/2-cosmological
+./1-tscc-make-ic.sh
+```
