@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+remote="$1"
+rsync -aKmvz --update --filter=':- .gitignore' --exclude='.git' ./ "$remote":~/project/agora-gizmo/
