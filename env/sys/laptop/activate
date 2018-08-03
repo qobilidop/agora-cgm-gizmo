@@ -1,4 +1,4 @@
-echo "test" > "$LOCAL_SYS_FILE"
+echo "laptop" > "$LOCAL_SYS_FILE"
 
 export LOCAL_CODES="grackle gizmo music"
 

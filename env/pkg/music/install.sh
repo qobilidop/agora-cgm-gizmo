@@ -18,7 +18,7 @@ patch < "$PKG_DIR/Makefile.diff"
 export CC="$LOCAL_CXX"
 export OPT="-Wno-unknown-pragmas"
 export CFLAGS="$LOCAL_CFLAGS $LOCAL_OMPFLAGS"
-export LFLAGS="$LOCAL_LDFLAGS $LOCAL_OMPFLAGS"
+export LFLAGS="$LOCAL_LDFLAGS $LOCAL_OMPFLAGS -lgsl -lgslcblas "
 export CPATHS="-I. $LOCAL_FFTW3_INC $LOCAL_GSL_INC $LOCAL_HDF5_INC"
 export LPATHS="$LOCAL_FFTW3_LIB $LOCAL_GSL_LIB $LOCAL_HDF5_LIB"
 make -j
