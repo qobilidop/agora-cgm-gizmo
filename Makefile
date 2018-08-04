@@ -19,6 +19,9 @@ deploy:
 	$(rsync-base) --delete-after --filter=':- .gitignore' --exclude='.git' \
 	./ tscc:~/project/agora-gizmo/
 
-.PHONY: capture
-capture:
-	$(rsync-base) tscc:~/project/agora-gizmo/data/sfh/ data/sfh/
+.PHONY: capture-data
+capture-data:
+	rsync -aKmvz --update \
+	--include='isolated-*/output/*.hdf5' \
+	--include='*/' --exclude='*' \
+	tscc:~/project/agora-gizmo/data/sim/ data/sim/
