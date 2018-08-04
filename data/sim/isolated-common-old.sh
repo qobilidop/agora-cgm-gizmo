@@ -1,2 +1,2 @@
-export GIZMO_CONFIG=tfb
+export GIZMO_CONFIG=iso-tfb-dev
 export GIZMO_PARAMS=iso

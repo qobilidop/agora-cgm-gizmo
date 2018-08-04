@@ -1,2 +1,2 @@
-export GIZMO_CONFIG=mfb
-export GIZMO_PARAMS=iso-var
+export GIZMO_CONFIG=iso-mfb
+export GIZMO_PARAMS=iso

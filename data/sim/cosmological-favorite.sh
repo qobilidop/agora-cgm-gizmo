@@ -1,2 +1,2 @@
-export GIZMO_CONFIG=mfb-cos
+export GIZMO_CONFIG=cos-mfb-dev
 export GIZMO_PARAMS=cos

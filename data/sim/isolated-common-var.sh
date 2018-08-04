@@ -1,2 +1,2 @@
-export GIZMO_CONFIG=tfb-dc
-export GIZMO_PARAMS=iso-var
+export GIZMO_CONFIG=iso-dc
+export GIZMO_PARAMS=iso
