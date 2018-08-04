@@ -6,6 +6,6 @@ for sim in cosmological-*/; do
     echo "Submitting $sim"
     (
         cd "$sim"
-        sbatch gizmo-job.sh
+        sbatch sim-job.sh
     )
 done

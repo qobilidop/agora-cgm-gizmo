@@ -6,6 +6,6 @@ for sim in isolated-*/; do
     echo "Submitting $sim"
     (
         cd "$sim"
-        qsub gizmo-job.sh
+        qsub sim-job.sh
     )
 done

@@ -1,2 +1,2 @@
-export GIZMO_CONFIG=cos-dc-cos
+export GIZMO_CONFIG=cos-dc
 export GIZMO_PARAMS=cos

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -e
 
-cd "$(dirname "$0")"
-sbatch 4-cos-ic.job
+cd "$REPO_DIR/data/ic"
+sbatch edison-job.sh

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -e
-cd "$(dirname "$0")"
 
 export SIM_IC=1e12q.dat
 export SIM_JOB_OMP=2
