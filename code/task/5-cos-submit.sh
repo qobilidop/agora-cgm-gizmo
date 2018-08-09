@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-cd "$REPO_DIR/data/sim"
+cd "$PROJECT_ROOT/data/sim"
 for sim in cosmological-*/; do
     echo "Submitting $sim"
     (

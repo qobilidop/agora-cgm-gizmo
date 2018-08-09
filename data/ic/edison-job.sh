@@ -8,7 +8,7 @@
 #SBATCH -L SCRATCH
 set -e
 
-cd "$REPO_DIR"
+cd "$PROJECT_ROOT"
 source env/activate
 
 cd data/ic

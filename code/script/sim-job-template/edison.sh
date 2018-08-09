@@ -7,7 +7,7 @@
 #SBATCH --export=ALL
 #SBATCH -o sim-job.log
 
-cd "$REPO_DIR"
+cd "$PROJECT_ROOT"
 source env/activate
 
 cd "data/sim/{sim_name}"

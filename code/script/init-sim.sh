@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 set -e
 
-mkdir -p "$REPO_DIR/data/sim/$SIM_NAME"
-cd "$REPO_DIR/data/sim/$SIM_NAME"
+mkdir -p "$PROJECT_ROOT/data/sim/$SIM_NAME"
+cd "$PROJECT_ROOT/data/sim/$SIM_NAME"
 
 # Copy IC
-cp "$REPO_DIR/data/ic/$SIM_IC" ic.dat
+cp "$PROJECT_ROOT/data/ic/$SIM_IC" ic.dat
 
 # Copy GIZMO files
-cp "$REPO_DIR/.local/bin/GIZMO-$GIZMO_CONFIG" GIZMO
-cp "$REPO_DIR/.local/opt/gizmo-agora/cooling/TREECOOL" .
-cp "$REPO_DIR/data/gizmo/config/$GIZMO_CONFIG.sh" Config.sh
-cp "$REPO_DIR/data/gizmo/params/$GIZMO_PARAMS.txt" params.txt
+cp "$PROJECT_ROOT/.local/bin/GIZMO-$GIZMO_CONFIG" GIZMO
+cp "$PROJECT_ROOT/.local/opt/gizmo-agora/cooling/TREECOOL" .
+cp "$PROJECT_ROOT/data/gizmo/config/$GIZMO_CONFIG.sh" Config.sh
+cp "$PROJECT_ROOT/data/gizmo/params/$GIZMO_PARAMS.txt" params.txt
 
 # Copy Grackle files
-cp "$REPO_DIR/.local/opt/grackle-gizmo-agora/input/CloudyData_UVB=HM2012.h5" .
+cp "$PROJECT_ROOT/.local/opt/grackle-gizmo-agora/input/CloudyData_UVB=HM2012.h5" .
 
 # Prepare job script
 replace=(

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -e
 
-cd "$REPO_DIR/data/ic"
+cd "$PROJECT_ROOT/data/ic"
 sbatch edison-job.sh
