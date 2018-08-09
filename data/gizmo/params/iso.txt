@@ -115,18 +115,3 @@ SfEffPerFreeFall    0.01    %  SFR/(Mgas/tfreefall) for gas which meets SF crite
 %--- initial metallicity of gas & stars in simulation
 InitMetallicity             1.0     % initial gas+stellar metallicity (in solar)
 InitStellarAge              20.0    % initial mean age (in Gyr; for stars in sim ICs)
-
-
-%-------------- (DEVELOPER_MODE on)
-
-%---- Accuracy of time integration
-ErrTolIntAccuracy       0.005   % <0.02
-CourantFac              0.1     % <0.20
-MaxRMSDisplacementFac   0.125   % <0.25
-
-%---- Tree algorithm, force accuracy, domain update frequency
-ErrTolTheta                 0.7     % 0.7=standard
-ErrTolForceAcc              0.0005  % 0.0025=standard
-
-%---- Convergence error for evaluating particle volumes
-MaxNumNgbDeviation      0.05    % <<DesNumNgb (values<1 are fine)
