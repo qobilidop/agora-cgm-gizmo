@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
-echo "$REPO_DIR"
-cd "$REPO_DIR"
+if [ -z "$PROJECT_ROOT"]; then
+    echo "PROJECT_ROOT is not set. Activate first:"
+    echo ">>> source env/activate"
+    exit
+fi
+cd "$PROJECT_ROOT"
 source env/activate
 
-echo "Initialize local sys: $LOCAL_SYS"
-./env/sys/"$LOCAL_SYS"/init.sh
-source env/activate
+echo "Initializing galenv"
+"$GALENV_REPO/init.sh"
 
-echo "Install packages"
-./env/pkg/install-all.sh
+echo "Initializing conda env"
+. "$("$CONDA_EXE" info --root)"/etc/profile.d/conda.sh
+conda env create -f env/environment.yml -p "$PROJECT_CONDA"

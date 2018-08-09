@@ -1,5 +1,7 @@
+.conda/
 .local/
 .vscode/
+.galenv
 *.log
 
 # Selected from https://github.com/github/gitignore/blob/master/Python.gitignore

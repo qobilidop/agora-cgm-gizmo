@@ -1,30 +1,32 @@
-# This script activates environment for the project.
-# It should only be used as
-# $ source bin/activate
-# from the root directory.
+# Set project root
+export PROJECT_ROOT="$PWD"
 
-# Export local environment
-export REPO_NAME="agora-gizmo"
-export REPO_DIR="$PWD"
-export LOCAL_PREFIX="$REPO_DIR/.local"
-export LOCAL_CONDA_PREFIX="$LOCAL_PREFIX/conda-env"
-export LOCAL_SYS_FILE="$LOCAL_PREFIX/local-sys"
+# Activate galenv
+export PROJECT_GALENV="$PROJECT_ROOT/.galenv"
+if [ -f "$PROJECT_GALENV" ]; then
+    export GALENV_SYS="$(cat "$PROJECT_GALENV")"
+    GALENV_PKG="grackle gizmo music"
+    if [ "$GALENV_SYS" = "tscc" ]; then
+        GALENV_PKG="fftw2 $GALENV_PKG"
+    fi
+    export GALENV_PKG
+    export GALENV_REPO="$PROJECT_ROOT/env/galenv"
+    export GALENV_LOCAL="$PROJECT_ROOT/.local"
 
-# Alter system environment
-export PATH="$REPO_DIR/env/bin:$PATH"
-mkdir -p "$LOCAL_PREFIX/bin"
-export PATH="$LOCAL_PREFIX/bin:$PATH"
-export PATH="$REPO_DIR/code/script:$PATH"
+    export GALENV_GIZMO_DIR="gizmo"
+    export GALENV_GIZMO_DL="hg clone https://bitbucket.org/qobilidop/gizmo-agora -u agora gizmo"
+    export GALENV_GIZMO_CONFIG_DIR="$PROJECT_ROOT/data/gizmo/config"
+    export GALENV_GRACKLE_DIR="grackle"
+    export GALENV_GRACKLE_DL="hg clone https://bitbucket.org/qobilidop/grackle-gizmo-agora -u gizmo-agora grackle"
+    export GALENV_MUSIC_DIR="music"
+    export GALENV_MUSIC_DL="hg clone https://bitbucket.org/ohahn/music"
 
-# Activate conda env
-if [ -d "$LOCAL_CONDA_PREFIX/conda-meta" ]; then
-    source enable-conda
-    conda activate "$LOCAL_CONDA_PREFIX"
-    export PATH="$LOCAL_CONDA_PREFIX/bin:$PATH"
+    source "$GALENV_REPO/activate"
 fi
 
-# Activate local env
-if [ -f "$LOCAL_SYS_FILE" ]; then
-    export LOCAL_SYS="$(cat "$LOCAL_SYS_FILE")"
-    source "env/sys/$LOCAL_SYS/activate"
+# Activate conda env
+export PROJECT_CONDA="$PROJECT_ROOT/.conda"
+if [ -d "$PROJECT_CONDA/conda-meta" ]; then
+    conda activate "$PROJECT_CONDA"
+    export PATH="$PROJECT_CONDA/bin:$PATH"
 fi
