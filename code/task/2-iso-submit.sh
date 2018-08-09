@@ -2,7 +2,7 @@
 set -e
 
 cd "$PROJECT_ROOT/data/sim"
-for sim in isolated-*/; do
+for sim in iso-*/; do
     echo "Submitting $sim"
     (
         cd "$sim"

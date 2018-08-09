@@ -9,9 +9,6 @@ fi
 cd "$PROJECT_ROOT"
 source env/activate
 
-echo "Initializing galenv"
-"$GALENV_REPO/init.sh"
-
 echo "Initializing conda env"
 . "$("$CONDA_EXE" info --root)"/etc/profile.d/conda.sh
 conda env create -f env/environment.yml -p "$PROJECT_CONDA"
