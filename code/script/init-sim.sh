@@ -8,13 +8,13 @@ cd "$PROJECT_ROOT/data/sim/$SIM_NAME"
 cp "$PROJECT_ROOT/data/ic/$SIM_IC" ic.dat
 
 # Copy GIZMO files
-cp "$PROJECT_ROOT/.local/bin/GIZMO-$GIZMO_CONFIG" GIZMO
-cp "$PROJECT_ROOT/.local/opt/gizmo-agora/cooling/TREECOOL" .
+cp "$GALENV_LOCAL/bin/GIZMO-$GIZMO_CONFIG" GIZMO
+cp "$GALENV_LOCAL/opt/$GALENV_GIZMO_DIR/cooling/TREECOOL" .
 cp "$PROJECT_ROOT/data/gizmo/config/$GIZMO_CONFIG.sh" Config.sh
 cp "$PROJECT_ROOT/data/gizmo/params/$GIZMO_PARAMS.txt" params.txt
 
 # Copy Grackle files
-cp "$PROJECT_ROOT/.local/opt/grackle-gizmo-agora/input/CloudyData_UVB=HM2012.h5" .
+cp "$GALENV_LOCAL/opt/$GALENV_GRACKLE_DIR/input/CloudyData_UVB=HM2012.h5" .
 
 # Prepare job script
 replace=(
