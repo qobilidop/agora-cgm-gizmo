@@ -18,7 +18,7 @@ if [ -f "$PROJECT_GALENV" ]; then
     export GALENV_GIZMO_DL="hg clone https://bitbucket.org/qobilidop/gizmo-agora -u agora gizmo"
     export GALENV_GIZMO_CONFIG_DIR="$PROJECT_ROOT/data/gizmo/config"
     export GALENV_GRACKLE_DIR="grackle"
-    export GALENV_GRACKLE_DL="hg clone https://bitbucket.org/qobilidop/grackle-gizmo-agora -u gizmo-agora grackle"
+    export GALENV_GRACKLE_DL="git clone https://github.com/qobilidop/grackle.git -b agora-gizmo"
     export GALENV_MUSIC_DIR="music"
     export GALENV_MUSIC_DL="hg clone https://bitbucket.org/ohahn/music"
 
