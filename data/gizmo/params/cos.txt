@@ -100,7 +100,7 @@ AGS_DesNumNgb           32  % neighbor number for calculating adaptive gravsoft
 
 
 %-------------- Grackle UVB file (COOL_GRACKLE on)
-GrackleDataFile          CloudyData_UVB=HM2012.h5
+GrackleDataFile          CloudyData_UVB=HM2012_shielded.h5
 
 
 %---- Metallicity Master Switch (METALS on)

@@ -14,7 +14,11 @@ cp "$PROJECT_ROOT/data/gizmo/config/$GIZMO_CONFIG.sh" Config.sh
 cp "$PROJECT_ROOT/data/gizmo/params/$GIZMO_PARAMS.txt" params.txt
 
 # Copy Grackle files
-cp "$GALENV_LOCAL/opt/$GALENV_GRACKLE_DIR/input/CloudyData_UVB=HM2012.h5" .
+for cloudy_table in CloudyData_UVB=HM2012.h5 CloudyData_UVB=HM2012_shielded.h5; do
+    if grep -q "$cloudy_table" params.txt; then
+        cp "$GALENV_LOCAL/opt/$GALENV_GRACKLE_DIR/input/$cloudy_table" .
+    fi
+done
 
 # Prepare job script
 replace=(
