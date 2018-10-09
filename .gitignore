@@ -5,6 +5,6 @@
 *.log
 
 # Selected from https://github.com/github/gitignore/blob/master/Python.gitignore
-
-# Jupyter Notebook
+__pycache__/
+*.py[cod]
 .ipynb_checkpoints

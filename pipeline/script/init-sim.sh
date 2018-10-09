@@ -10,8 +10,8 @@ cp "$PROJECT_ROOT/data/ic/$SIM_IC" ic.dat
 # Copy GIZMO files
 cp "$GALENV_LOCAL/bin/GIZMO-$GIZMO_CONFIG" GIZMO
 cp "$GALENV_LOCAL/opt/$GALENV_GIZMO_DIR/cooling/TREECOOL" .
-cp "$PROJECT_ROOT/data/gizmo/config/$GIZMO_CONFIG.sh" Config.sh
-cp "$PROJECT_ROOT/data/gizmo/params/$GIZMO_PARAMS.txt" params.txt
+cp "$PROJECT_ROOT/config/gizmo/config/$GIZMO_CONFIG.sh" Config.sh
+cp "$PROJECT_ROOT/config/gizmo/params/$GIZMO_PARAMS.txt" params.txt
 
 # Copy Grackle files
 for cloudy_table in CloudyData_UVB=HM2012.h5 CloudyData_UVB=HM2012_shielded.h5; do
