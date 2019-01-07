@@ -1,0 +1,8 @@
+gizmo/
+job/
+output/
+GIZMO
+params.txt
+TREECOOL
+*.dat
+*.h5
