@@ -23,6 +23,12 @@ init: params.txt
 params.txt: $(CONFIG_DIR)/gizmo-params/$(PARAMS)
 	cp -f $< $@
 
+ifeq ($(PARAMS),cos.txt)
+init: output-times.txt
+output-times.txt: $(CONFIG_DIR)/output-times/z.txt
+	cp -f $< $@
+endif
+
 ifeq ($(PARAMS),iso-old.txt)
 GRACKLE_DATA_FILE = CloudyData_UVB=HM2012.h5
 else
