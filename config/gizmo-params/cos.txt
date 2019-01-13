@@ -7,89 +7,84 @@ InitCondFile  ic.dat
 OutputDir     output
 
 %---- File formats (input and output)
-ICFormat    1  % 1=unformatted (gadget) binary, 3=hdf5, 4=cluster
-SnapFormat  3  % 1=unformatted (gadget) binary, 3=hdf5
+ICFormat    1
+SnapFormat  3
 
 %---- Output parameters
-RestartFile                 restart
-SnapshotFileBase            snapshot
-OutputListOn                1  % =1 to use list in "OutputListFilename"
-OutputListFilename          output-times.txt  % list of times (in code units) for snaps
-NumFilesPerSnapshot         1
-NumFilesWrittenInParallel   1  % must be < N_processors & power of 2
+RestartFile                restart
+SnapshotFileBase           snapshot
+OutputListOn               1
+OutputListFilename         output-times.txt
+NumFilesPerSnapshot        1
+NumFilesWrittenInParallel  1
 
 %---- Output frequency
-TimeOfFirstSnapshot     0.0        % time (code units) of first snapshot
-TimeBetSnapshot         5.11356e-2 % 50 Myr, time between (if OutputListOn=0), code units
-TimeBetStatistics       5.11356e-2 % 50 Myr, time between additional statistics (e.g. energy)
+TimeOfFirstSnapshot  0
+TimeBetSnapshot      0
+TimeBetStatistics    0.05
 
 %---- CPU run-time and checkpointing time-limits
-TimeLimitCPU            202000  % < 48h / 0.85, in seconds
-CpuTimeBetRestartFile   3600    % in seconds
-ResubmitOn              0
-ResubmitCommand         my-scriptfile
+TimeLimitCPU           202000  % < 48h / 0.85
+CpuTimeBetRestartFile  7200
+ResubmitOn             0
+ResubmitCommand        none
 
 %---- Desired simulation beginning and end times (in code units) for run
-TimeBegin   0.00990099 % z = 100, Beginning of the simulation
-TimeMax     1          % z = 0, End of the simulation
+TimeBegin  0.00990099  % z = 100
+TimeMax    1.0         % z = 0
 
 %---- Maximum and minimum timesteps allowed
-MaxSizeTimestep         0.005   % in code units, set for your problem
-MinSizeTimestep         1.0e-12 % set this very low, or get the wrong answer
+MaxSizeTimestep  0.005
+MinSizeTimestep  1.0e-12
 
 %---- System of units
-UnitLength_in_cm            3.085678e21     % 1.0 kpc/h
-UnitMass_in_g               1.989e43        % 1.0e10 solar masses/h
-UnitVelocity_in_cm_per_s    1.0e5           % 1 km/sec
-UnitMagneticField_in_gauss  1.0             % 1 gauss
-GravityConstantInternal     0               % calculated by code if =0
+UnitLength_in_cm            3.085678e21
+UnitMass_in_g               1.989e43
+UnitVelocity_in_cm_per_s    1.0e5
+UnitMagneticField_in_gauss  1.0
+GravityConstantInternal     0
+% UnitTime_in_Gyr = UnitLength / UnitVelocity = 0.97846207508
 
 %---- Cosmological parameters
-ComovingIntegrationOn   1       % is it cosmological? (yes=1, no=0)
-BoxSize                 60000.  % in code units
-Omega0                  0.272   % =0 for non-cosmological
-OmegaLambda             0.728   % =0 for non-cosmological
-OmegaBaryon             0.0455  % =0 for non-cosmological
-HubbleParam             0.702   % little 'h'; =1 for non-cosmological runs
+ComovingIntegrationOn  1
+BoxSize                60000.
+Omega0                 0.272
+OmegaLambda            0.728
+OmegaBaryon            0.0455
+HubbleParam            0.702
 
-%----- Memory alloction
-MaxMemSize          5000    % sets maximum MPI process memory use in MByte
-PartAllocFactor     2.5     % memory load allowed for better cpu balance
-BufferSize          100     % in MByte
+%----- Memory allocation
+MaxMemSize       5000
+PartAllocFactor  2.5
+BufferSize       100
 
 %---- Rebuild domains when >this fraction of particles active
-TreeDomainUpdateFrequency   0.0005   % 0.0005-0.05, dept on core+particle number
+TreeDomainUpdateFrequency  0.0005
 
 %---- (Optional) Initial hydro temperature & temperature floor (in Kelvin)
-InitGasTemp     0       % set by IC file if =0
-MinGasTemp      10.     % don't set <10 in explicit feedback runs, otherwise 0
+InitGasTemp  0
+MinGasTemp   10.
 
 %---- Hydro reconstruction (kernel) parameters
-DesNumNgb               32         % domain-reconstruction kernel number: 32 standard, 60-114 for quintic
-MaxHsml                 1.0e8      % minimum gas kernel length (some very large value to prevent errors)
-MinGasHsmlFractional    0.2        % minimum kernel length relative to gas force softening (<= 1)
+DesNumNgb             32
+MaxHsml               1.0e8
+MinGasHsmlFractional  0.2
 
 %---- Gravitational softening lengths
-%----- Softening lengths per particle type. If ADAPTIVE_GRAVSOFT is set, these
-%-------- are the minimum softening allowed for each type -------
-%-------- (units are co-moving for cosmological integrations)
-SofteningGas    0.5616   % gas (particle type=0) (in co-moving code units)
-SofteningHalo   0.5616   % dark matter/collisionless particles (type=1)
-SofteningDisk   101.66   % collisionless particles (type=2)
-SofteningBulge  0        % collisionless particles (type=3)
-SofteningStars  0.5616   % stars spawned from gas (type=4)
-SofteningBndry  0        % black holes (if active), or collisionless (type=5)
-%---- if these are set in cosmo runs, SofteningX switches from comoving to physical
-%------- units when the comoving value exceeds the choice here
-%------- (these are ignored, and *only* the above are used, for non-cosmo runs)
-SofteningGasMaxPhys     0.05616  % = 80 pc = 0.08 * 0.702 kpc/h
-SofteningHaloMaxPhys    0.05616
-SofteningDiskMaxPhys    10.166   % = 80 pc * 8^(5/2)
-SofteningBulgeMaxPhys   0
-SofteningStarsMaxPhys   0.05616
-SofteningBndryMaxPhys   0
+SofteningGas    0.5616
+SofteningHalo   0.5616
+SofteningDisk   101.66
+SofteningBulge  0
+SofteningStars  0.5616
+SofteningBndry  0
+SofteningGasMaxPhys    0.05616  % = 80 pc = 0.08 * 0.702 kpc/h
+SofteningHaloMaxPhys   0.05616
+SofteningDiskMaxPhys   10.166   % = 80 pc * 8^(5/2)
+SofteningBulgeMaxPhys  0
+SofteningStarsMaxPhys  0.05616
+SofteningBndryMaxPhys  0
 %----- parameters for adaptive gravitational softening
-AGS_DesNumNgb           32  % neighbor number for calculating adaptive gravsoft
+AGS_DesNumNgb  32
 
 
 %-------------------------------------------------------------------------
@@ -98,20 +93,14 @@ AGS_DesNumNgb           32  % neighbor number for calculating adaptive gravsoft
 %-------------------------------------------------------------------------
 %-------------------------------------------------------------------------
 
-
-%-------------- Grackle UVB file (COOL_GRACKLE on)
-GrackleDataFile          CloudyData_UVB=HM2012_shielded.h5
-
+%---- Grackle UVB file (COOL_GRACKLE on)
+GrackleDataFile  CloudyData_UVB=HM2012_shielded.h5
 
 %---- Metallicity Master Switch (METALS on)
-SolarAbundance  0.02041  % AGORA standard value
-
+SolarAbundance  0.02041  % AGORA new value
 
 %---- Star Formation parameters (GALSF on)
-CritPhysDensity     10.     %  critical physical density for star formation (cm^(-3)) 
-SfEffPerFreeFall    0.01    %  SFR/(Mgas/tfreefall) for gas which meets SF criteria
-
-
-%--- initial metallicity of gas & stars in simulation
-InitMetallicity             0.0001  % initial gas+stellar metallicity (in solar)
-InitStellarAge              0.001   % initial mean age (in Gyr; for stars in sim ICs)
+CritPhysDensity   10.
+SfEffPerFreeFall  0.01
+InitMetallicity   0.0001
+InitStellarAge    0.001
