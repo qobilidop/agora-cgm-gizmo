@@ -1,9 +1,8 @@
-gizmo/
-job/
+gizmo-hg/
 output/
-GIZMO
-GRACKLE_INFO
-params.txt*
-TREECOOL
 *.dat
 *.h5
+GIZMO
+gizmo-params.txt*
+GRACKLE_INFO
+TREECOOL

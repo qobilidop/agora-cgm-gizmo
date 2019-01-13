@@ -1,6 +1,6 @@
-IC = disk-low.dat
-PARAMS = iso-old.txt
-JOB = tscc.sh
-SUBMIT = qsub -N iso-old-sff
+JOB_NAME = iso-old-sff
+CONFIG_IC = disk-low.dat
+CONFIG_GIZMO_PARAMS = iso-old.txt
 
 include ../template/Makefile
+include ../template/Makefile.iso-tscc

@@ -1,0 +1,7 @@
+.PHONY: submit
+submit: job/run.sh init
+	cd job && qsub -N $(JOB_NAME) run.sh
+
+job/run.sh: ../template/job/iso-tscc.sh
+	mkdir -p job
+	cp -f $< $@

@@ -1,6 +1,6 @@
-IC = 1e12q.dat
-PARAMS = cos.txt
-JOB = edison.sh
-SUBMIT = sbatch -J cos-mech
+JOB_NAME = cos-mech
+CONFIG_IC = 1e12q.dat
+CONFIG_GIZMO_PARAMS = cos.txt
 
 include ../template/Makefile
+include ../template/Makefile.cos-edison
