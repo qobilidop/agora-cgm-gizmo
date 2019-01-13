@@ -79,7 +79,7 @@ SofteningStars  0.5616
 SofteningBndry  0
 SofteningGasMaxPhys    0.05616  % = 80 pc = 0.08 * 0.702 kpc/h
 SofteningHaloMaxPhys   0.05616
-SofteningDiskMaxPhys   10.166   % = 80 pc * 8^(5/2)
+SofteningDiskMaxPhys   10.166   % = 80 pc * 8^((12-7)/2)
 SofteningBulgeMaxPhys  0
 SofteningStarsMaxPhys  0.05616
 SofteningBndryMaxPhys  0

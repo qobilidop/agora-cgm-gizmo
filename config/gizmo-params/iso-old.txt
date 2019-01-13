@@ -1,6 +1,7 @@
 %-------------------------------------------------------------------------
 %----  GIZMO input parameters for AGORA isolated runs on TSCC
 %      (with old solar abundance definition)
+%      Reference: coolsf.par
 %-------------------------------------------------------------------------
 
 %----  Relevant files (filenames and directories)
