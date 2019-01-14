@@ -46,5 +46,6 @@ $(GRACKLE_DATA_FILE): $(GIZENV_LOCAL)/opt/grackle/input/$(GRACKLE_DATA_FILE)
 
 .PHONY: clean
 clean:
-	rm -rf gizmo-hg job output
+	rm -rf job
+	rm -rf gizmo-hg output
 	rm -f *.dat *.h5 GIZMO gizmo-params.txt* GRACKLE_INFO TREECOOL
