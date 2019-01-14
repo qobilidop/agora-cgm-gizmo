@@ -31,7 +31,7 @@ $(GIZMO_PARAMS): $(CONFIG_DIR)/gizmo-params/$(CONFIG_GIZMO_PARAMS)
 
 ifeq ($(CONFIG_GIZMO_PARAMS),cos.txt)
 init: output-times.txt
-output-times.txt: $(CONFIG_DIR)/output-times/z.txt
+output-times.txt: $(CONFIG_DIR)/output-times/output-a.txt
 	cp -f $< $@
 endif
 
