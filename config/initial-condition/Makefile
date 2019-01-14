@@ -4,4 +4,5 @@ submit:
 
 .PHONY: clean
 clean:
-	rm -f job/*.log *.bin *.txt 1e12q-lv12.dat
+	rm -f job/*.log
+	rm -f *.bin *.txt 1e12q-lv12.dat
