@@ -1,0 +1,9 @@
+cosmological = true
+feedback = "mechanical"
+stay_old = false
+
+[job]
+nodes = 8
+mpi = 8
+omp = 2
+hour = 8

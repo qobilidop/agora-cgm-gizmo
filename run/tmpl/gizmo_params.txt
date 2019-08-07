@@ -1,0 +1,171 @@
+%-------------------------------------------------------------------------
+%----  AGORA
+%-------------------------------------------------------------------------
+
+%----  Relevant files (filenames and directories)
+InitCondFile  ic.dat
+OutputDir     output
+
+%---- File formats (input and output)
+ICFormat    1
+SnapFormat  3
+
+%---- Output parameters
+RestartFile                 restart
+SnapshotFileBase            snapshot
+OutputListOn                {{ 1 if cosmological else 0 }}
+OutputListFilename          output_times.txt
+NumFilesPerSnapshot         1
+NumFilesWrittenInParallel   1
+
+%---- Output frequency
+TimeOfFirstSnapshot     0
+{% if cosmological %}
+TimeBetSnapshot         0
+TimeBetStatistics       0.05
+{% else %}
+TimeBetSnapshot         5.110060e-2  % 50 Myr = 5e-2 / 0.978462 code time
+TimeBetStatistics       5.110060e-2
+{% endif %}
+
+%---- CPU run-time and checkpointing time-limits
+{% if cosmological %}
+TimeLimitCPU           202000  % < 48h / 0.85
+{% else %}
+TimeLimitCPU           32000  % < 8h / 0.85
+{% endif %}
+CpuTimeBetRestartFile  3600
+ResubmitOn             0
+ResubmitCommand        none
+
+%---- Desired simulation beginning and end times (in code units) for run
+{% if cosmological %}
+TimeBegin   0.00990099  % z = 100
+TimeMax     1.0         % z = 0
+{% else %}
+TimeBegin   0.0
+TimeMax     0.511006  % 0.5 Gyr = 0.5 / 0.978462 code time
+{% endif %}
+
+%---- Maximum and minimum timesteps allowed
+MaxSizeTimestep  0.005
+MinSizeTimestep  1.0e-12
+
+%---- System of units
+UnitLength_in_cm            3.085678e21
+UnitMass_in_g               1.989e43
+UnitVelocity_in_cm_per_s    1.0e5
+UnitMagneticField_in_gauss  1.0
+GravityConstantInternal     0
+% UnitTime_in_Gyr = UnitLength / UnitVelocity = 0.97846207508
+
+%---- Cosmological parameters
+{% if cosmological %}
+ComovingIntegrationOn  1
+BoxSize                60000
+Omega0                 0.272
+OmegaLambda            0.728
+OmegaBaryon            0.0455
+HubbleParam            0.702
+{% else %}
+ComovingIntegrationOn  0
+BoxSize                10000
+Omega0                 0
+OmegaLambda            0
+OmegaBaryon            0
+HubbleParam            1
+{% endif %}
+
+%----- Memory allocation
+MaxMemSize          5000
+PartAllocFactor     2.5
+BufferSize          100
+
+%---- Rebuild domains when > this fraction of particles active
+TreeDomainUpdateFrequency  0.005
+
+%---- (Optional) Initial hydro temperature & temperature floor (in Kelvin)
+InitGasTemp  {{ 0 if cosmological else "1e4" }}
+MinGasTemp   10
+
+%---- Hydro reconstruction (kernel) parameters
+DesNumNgb             32
+MaxHsml               1.0e8
+MinGasHsmlFractional  {{ 0.2 if cosmological else 0.07142857 }}
+
+%---- Gravitational softening lengths
+{% if cosmological %}
+SofteningGas    0.5616
+SofteningHalo   0.5616
+SofteningDisk   101.66
+SofteningBulge  0
+SofteningStars  0.5616
+SofteningBndry  0
+SofteningGasMaxPhys    0.05616  % = 80 pc = 0.08 * 0.702 kpc/h
+SofteningHaloMaxPhys   0.05616
+SofteningDiskMaxPhys   10.166   % = 80 pc * 8^((12-7)/2)
+SofteningBulgeMaxPhys  0
+SofteningStarsMaxPhys  0.05616
+SofteningBndryMaxPhys  0
+{% else %}
+SofteningGas    0.08
+SofteningHalo   0.08
+SofteningDisk   0.08
+SofteningBulge  0.08
+SofteningStars  0.08
+SofteningBndry  0.08
+SofteningGasMaxPhys    0
+SofteningHaloMaxPhys   0
+SofteningDiskMaxPhys   0
+SofteningBulgeMaxPhys  0
+SofteningStarsMaxPhys  0
+SofteningBndryMaxPhys  0
+{% endif %}
+%----- parameters for adaptive gravitational softening
+AGS_DesNumNgb  32
+
+
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%---------- Physics Modules ----------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+
+%---- Grackle UVB file (COOL_GRACKLE on)
+{% if self_shielded %}
+GrackleDataFile  CloudyData_UVB=HM2012_shielded.h5
+{% else %}
+GrackleDataFile  CloudyData_UVB=HM2012.h5
+{% endif %}
+
+%---- Metallicity Master Switch (METALS on)
+{% if stay_old %}
+SolarAbundance  0.01295
+{% else %}
+SolarAbundance  0.02041
+{% endif %}
+
+%---- Star Formation parameters (GALSF on)
+CritPhysDensity   10
+SfEffPerFreeFall  0.01
+{% if cosmological %}
+InitMetallicity   0.0001
+InitStellarAge    0.001
+{% else %}
+    {% if stay_old %}
+InitMetallicity   1.576  % = 0.02041 / 0.01295
+    {% else %}
+InitMetallicity   1
+    {% endif %}
+InitStellarAge    20
+{% endif %}
+
+{% if stay_old %}
+%---- (DEVELOPER_MODE on)
+ErrTolIntAccuracy      0.005
+CourantFac             0.1
+MaxRMSDisplacementFac  0.125
+ErrTolTheta            0.7
+ErrTolForceAcc         0.0005
+MaxNumNgbDeviation     0.05
+{% endif %}

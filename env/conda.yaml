@@ -1,0 +1,8 @@
+channels:
+- conda-forge
+dependencies:
+- jinja2
+- numpy
+- pandas
+- python
+- toml

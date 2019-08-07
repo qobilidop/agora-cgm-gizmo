@@ -1,7 +1,0 @@
-.PHONY: submit
-submit: job/run.sh init
-	cd job && sbatch -J $(JOB_NAME) run.sh
-
-job/run.sh: ../template/job/cos-edison.sh
-	mkdir -p job
-	cp -f $< $@

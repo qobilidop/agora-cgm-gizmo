@@ -1,0 +1,7 @@
+gizmo_src/
+output/
+*.dat
+*.h5
+GIZMO
+GRACKLE_INFO
+TREECOOL

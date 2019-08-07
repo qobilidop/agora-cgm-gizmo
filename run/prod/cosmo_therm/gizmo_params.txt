@@ -1,0 +1,107 @@
+%-------------------------------------------------------------------------
+%----  AGORA
+%-------------------------------------------------------------------------
+
+%----  Relevant files (filenames and directories)
+InitCondFile  ic.dat
+OutputDir     output
+
+%---- File formats (input and output)
+ICFormat    1
+SnapFormat  3
+
+%---- Output parameters
+RestartFile                 restart
+SnapshotFileBase            snapshot
+OutputListOn                1
+OutputListFilename          output_times.txt
+NumFilesPerSnapshot         1
+NumFilesWrittenInParallel   1
+
+%---- Output frequency
+TimeOfFirstSnapshot     0
+TimeBetSnapshot         0
+TimeBetStatistics       0.05
+
+%---- CPU run-time and checkpointing time-limits
+TimeLimitCPU           202000  % < 48h / 0.85
+CpuTimeBetRestartFile  3600
+ResubmitOn             0
+ResubmitCommand        none
+
+%---- Desired simulation beginning and end times (in code units) for run
+TimeBegin   0.00990099  % z = 100
+TimeMax     1.0         % z = 0
+
+%---- Maximum and minimum timesteps allowed
+MaxSizeTimestep  0.005
+MinSizeTimestep  1.0e-12
+
+%---- System of units
+UnitLength_in_cm            3.085678e21
+UnitMass_in_g               1.989e43
+UnitVelocity_in_cm_per_s    1.0e5
+UnitMagneticField_in_gauss  1.0
+GravityConstantInternal     0
+% UnitTime_in_Gyr = UnitLength / UnitVelocity = 0.97846207508
+
+%---- Cosmological parameters
+ComovingIntegrationOn  1
+BoxSize                60000
+Omega0                 0.272
+OmegaLambda            0.728
+OmegaBaryon            0.0455
+HubbleParam            0.702
+
+%----- Memory allocation
+MaxMemSize          5000
+PartAllocFactor     2.5
+BufferSize          100
+
+%---- Rebuild domains when > this fraction of particles active
+TreeDomainUpdateFrequency  0.005
+
+%---- (Optional) Initial hydro temperature & temperature floor (in Kelvin)
+InitGasTemp  0
+MinGasTemp   10
+
+%---- Hydro reconstruction (kernel) parameters
+DesNumNgb             32
+MaxHsml               1.0e8
+MinGasHsmlFractional  0.2
+
+%---- Gravitational softening lengths
+SofteningGas    0.5616
+SofteningHalo   0.5616
+SofteningDisk   101.66
+SofteningBulge  0
+SofteningStars  0.5616
+SofteningBndry  0
+SofteningGasMaxPhys    0.05616  % = 80 pc = 0.08 * 0.702 kpc/h
+SofteningHaloMaxPhys   0.05616
+SofteningDiskMaxPhys   10.166   % = 80 pc * 8^((12-7)/2)
+SofteningBulgeMaxPhys  0
+SofteningStarsMaxPhys  0.05616
+SofteningBndryMaxPhys  0
+%----- parameters for adaptive gravitational softening
+AGS_DesNumNgb  32
+
+
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%---------- Physics Modules ----------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+
+%---- Grackle UVB file (COOL_GRACKLE on)
+GrackleDataFile  CloudyData_UVB=HM2012.h5
+
+%---- Metallicity Master Switch (METALS on)
+SolarAbundance  0.02041
+
+%---- Star Formation parameters (GALSF on)
+CritPhysDensity   10
+SfEffPerFreeFall  0.01
+InitMetallicity   0.0001
+InitStellarAge    0.001
+

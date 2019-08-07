@@ -1,0 +1,9 @@
+cosmological = false
+feedback = false
+stay_old = true
+
+[job]
+nodes = 1
+mpi = 16
+omp = 1
+hour = 8

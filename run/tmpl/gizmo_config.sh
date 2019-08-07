@@ -1,0 +1,29 @@
+{% if cosmological %}
+BOX_PERIODIC
+PMGRID=512
+PM_PLACEHIGHRESREGION=1+2+16
+PM_HIRES_REGION_CLIPPING=1000
+OPENMP={{ job.omp }}
+MULTIPLEDOMAINS=16
+{% endif %}
+
+HYDRO_MESHLESS_FINITE_MASS
+COOLING
+COOL_GRACKLE
+METALS
+EOS_TRUELOVE_PRESSURE
+
+{% if feedback %}
+GALSF
+    {% if feedback == "mechanical" %}
+GALSF_FB_MECHANICAL
+    {% elif feedback == "thermal"%}
+GALSF_FB_THERMAL
+GALSF_FB_TURNOFF_COOLING
+    {% endif %}
+{% endif %}
+
+STOP_WHEN_BELOW_MINTIMESTEP
+{% if stay_old %}
+DEVELOPER_MODE
+{% endif %}
