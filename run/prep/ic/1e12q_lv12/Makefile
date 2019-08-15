@@ -1,6 +1,6 @@
 .PHONY: submit
 submit:
-	cd job && qsub 1e12q-lv12-tscc.sh
+	qsub job/ic.sh
 
 .PHONY: clean
 clean:

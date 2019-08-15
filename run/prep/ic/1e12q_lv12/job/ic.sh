@@ -7,9 +7,9 @@
 #PBS -j oe
 #PBS -o 1e12q_lv12.log
 #PBS -d .
+#PBS -v JOB_INIT
 eval "$JOB_INIT"
+
 date
-
 MUSIC music.conf
-
 date
