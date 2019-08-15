@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # qsub job/run.sh
-#PBS -N isodisk_mech
+#PBS -N disk_therm
 #PBS -q condo
 #PBS -l nodes=1:ppn=16:ib
 #PBS -l walltime=8:00:00
 #PBS -j oe
-#PBS -o isodisk_mech.log
+#PBS -o disk_therm.log
 #PBS -d .
 eval "$JOB_INIT"
 date
