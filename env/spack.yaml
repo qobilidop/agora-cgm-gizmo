@@ -1,5 +1,5 @@
 spack:
   specs:
   - gizmo-deps
-  - grackle@3.0
+  - grackle@3.1.1
   - music

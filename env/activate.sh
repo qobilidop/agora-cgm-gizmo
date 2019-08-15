@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-spack env activate -d "$PWD/env/spack"
 conda activate "$PWD/env/conda"
+spack env activate -d "$PWD/env/spack"
 
 JOB_INIT=$(cat <<EOF
 set -e
